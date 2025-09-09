@@ -220,6 +220,7 @@ const Pricing = () => {
             variant="hero" 
             size="lg"
             className="font-bold text-lg px-12 py-4"
+            onClick={() => window.open('https://api.whatsapp.com/send/?phone=5519994572513&text&type=phone_number&app_absent=0', '_blank')}
           >
             QUERO DOMINAR O MARKETING AGORA
           </Button>
@@ -288,6 +289,7 @@ const Pricing = () => {
                       : ''
                   }`}
                   size="lg"
+                  onClick={() => window.open('https://api.whatsapp.com/send/?phone=5519994572513&text&type=phone_number&app_absent=0', '_blank')}
                 >
                   Escolher {plan.name}
                 </Button>

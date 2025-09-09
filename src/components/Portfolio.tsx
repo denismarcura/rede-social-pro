@@ -167,7 +167,11 @@ const Portfolio = () => {
           <p className="text-muted-foreground mb-4">
             Quer ver seu projeto aqui também?
           </p>
-          <Button variant="hero" size="lg">
+          <Button 
+            variant="hero" 
+            size="lg"
+            onClick={() => window.open('https://api.whatsapp.com/send/?phone=5519994572513&text&type=phone_number&app_absent=0', '_blank')}
+          >
             Solicitar Orçamento
           </Button>
         </div>
