@@ -33,10 +33,22 @@ const CTABanner = () => {
   }, []);
 
   return (
-    <section className="py-16 bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 relative overflow-hidden">
-      {/* Background Effects */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.15)_0%,transparent_50%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(255,255,255,0.15)_0%,transparent_50%)]" />
+    <section className="py-16 bg-gradient-to-br from-blue-900 via-blue-800 to-slate-900 relative overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute inset-0">
+        {/* Geometric shapes */}
+        <div className="absolute top-10 left-10 w-20 h-20 bg-blue-400/10 rounded-full blur-xl" />
+        <div className="absolute top-32 right-20 w-32 h-32 bg-cyan-400/10 rounded-full blur-2xl" />
+        <div className="absolute bottom-20 left-1/4 w-24 h-24 bg-blue-300/10 rounded-full blur-xl" />
+        <div className="absolute bottom-32 right-1/3 w-16 h-16 bg-indigo-400/10 rounded-full blur-lg" />
+        
+        {/* Pattern overlay */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(59,130,246,0.15)_0%,transparent_50%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(14,165,233,0.15)_0%,transparent_50%)]" />
+        
+        {/* Grid pattern */}
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(59,130,246,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.03)_1px,transparent_1px)] bg-[size:50px_50px]" />
+      </div>
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto text-center text-white">
