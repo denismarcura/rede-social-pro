@@ -3,7 +3,15 @@ import heroImage from "@/assets/hero-image.jpg";
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen bg-gradient-dark flex items-center overflow-hidden">
+    <>
+      {/* Top Banner */}
+      <div className="bg-gradient-primary py-3 text-center">
+        <p className="text-primary-foreground font-semibold">
+          📋 Nome do cliente, segue seu orçamento
+        </p>
+      </div>
+      
+      <section className="relative min-h-screen bg-gradient-dark flex items-center overflow-hidden">
       {/* Background pattern */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,hsl(24_95%_53%)_1px,transparent_0)] bg-[size:50px_50px]" />
@@ -27,7 +35,7 @@ const Hero = () => {
           
           <div className="flex flex-col sm:flex-row gap-4">
             <Button variant="hero" size="lg" className="text-lg px-8 py-4">
-              Solicitar Orçamento
+              Você tem alguma dúvida?
             </Button>
             <Button variant="outline" size="lg" className="text-lg px-8 py-4">
               Ver Nossos Serviços
@@ -61,6 +69,7 @@ const Hero = () => {
         </div>
       </div>
     </section>
+    </>
   );
 };
 

@@ -6,50 +6,71 @@ import { Check, Star } from "lucide-react";
 const Pricing = () => {
   const plans = [
     {
-      name: "Plano Bronze",
-      price: "R$ 897",
+      name: "Plano Prata",
+      price: "R$ 299",
       period: "/mês",
-      description: "Ideal para pequenos negócios iniciando no digital",
+      description: "Perfeito para empresas que querem crescer com qualidade no marketing digital",
       popular: false,
       features: [
-        "Gestão de 2 redes sociais (Instagram e Facebook)",
-        "12 posts por mês",
-        "Criação de artes para o feed",
-        "Suporte via WhatsApp",
-        "Relatório mensal básico"
-      ]
-    },
-    {
-      name: "Plano Prata",
-      price: "R$ 1.497",
-      period: "/mês",
-      description: "Perfeito para empresas em crescimento",
-      popular: true,
-      features: [
-        "Tudo do Plano Bronze",
-        "Gestão de 3 redes sociais",
-        "20 posts por mês",
-        "8 stories por semana",
-        "Relatório mensal detalhado",
-        "Gestão básica de tráfego pago",
-        "Atendimento prioritário"
+        "20 Criativos profissionais",
+        "20 Textos com SEO",
+        "20 Postagens estratégicas",
+        "10 Stories envolventes",
+        "05 Vídeos Reels",
+        "Tráfego pago (Facebook Instagram)",
+        "Bio profissional",
+        "LinkBio Instagram",
+        "Checklist digital personalizado",
+        "Atendimento VIP WhatsApp",
+        "Relatório mensal",
+        "2x sem juros no cartão"
       ]
     },
     {
       name: "Plano Ouro",
-      price: "R$ 2.297",
+      price: "R$ 599",
       period: "/mês",
-      description: "Para empresas que querem dominar o digital",
+      description: "Solução completa para empresas que querem resultados expressivos",
+      popular: true,
+      features: [
+        "60 Criativos profissionais",
+        "60 Textos otimizados com SEO",
+        "60 Postagens estratégicas",
+        "10 Stories envolventes",
+        "10 Vídeos (Reels)",
+        "Tráfego pago Facebook/Instagram",
+        "Tráfego pago Google/YouTube",
+        "Bio profissional completa",
+        "Link na bio Instagram",
+        "Checklist digital personalizado",
+        "Atendimento VIP WhatsApp",
+        "Relatório mensal detalhado",
+        "BÔNUS: Website ou Landing Page",
+        "3x sem juros no cartão"
+      ]
+    },
+    {
+      name: "Plano Titânio",
+      price: "R$ 899",
+      period: "/mês",
+      description: "A solução premium para empresas que querem dominar todos os canais digitais",
       popular: false,
       features: [
-        "Tudo do Plano Prata",
-        "Gestão de todas as redes sociais",
-        "30 posts por mês",
-        "4 Reels/vídeos curtos por mês",
-        "Gestão avançada de tráfego pago",
-        "Reunião estratégica mensal",
-        "Consultoria personalizada",
-        "Suporte 24/7"
+        "90 Criativos profissionais",
+        "90 Textos otimizados com SEO",
+        "90 Postagens estratégicas",
+        "20 Stories envolventes",
+        "15 Vídeos (Reels)",
+        "Tráfego pago Facebook/Instagram",
+        "Tráfego pago Google/YouTube",
+        "Tráfego Pago LinkedIn/TikTok/Pinterest",
+        "Bio profissional completa",
+        "Link na bio Instagram",
+        "Checklist digital personalizado",
+        "Atendimento VIP WhatsApp",
+        "Relatório mensal detalhado",
+        "BÔNUS: Website ou Landing Page",
+        "3x sem juros no cartão"
       ]
     }
   ];
@@ -72,6 +93,96 @@ const Pricing = () => {
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Oferecemos diferentes planos para atender às necessidades específicas do seu negócio
           </p>
+        </div>
+
+        {/* Special Promotion */}
+        <div className="bg-gradient-primary rounded-2xl p-8 mb-16 border border-primary/20 text-center">
+          <h3 className="text-3xl font-bold text-primary-foreground mb-4">
+            Marketing Digital Definitivo
+          </h3>
+          <p className="text-primary-foreground/90 mb-6">
+            Domine o marketing digital com estratégias profissionais que geram resultados reais.
+          </p>
+          
+          <div className="mb-6">
+            <div className="text-5xl font-bold text-primary-foreground mb-2">
+              3x de R$ 199
+            </div>
+            <div className="text-primary-foreground/80">
+              ou R$ 549 no PIX (7% de desconto)
+            </div>
+          </div>
+
+          <div className="grid grid-cols-2 gap-4 max-w-4xl mx-auto mb-8 text-sm text-primary-foreground">
+            <div className="flex items-center gap-2">
+              <Check className="w-4 h-4" />
+              <span>60 Criativos profissionais</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Check className="w-4 h-4" />
+              <span>60 Textos otimizados com SEO</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Check className="w-4 h-4" />
+              <span>60 Postagens estratégicas</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Check className="w-4 h-4" />
+              <span>10 Stories envolventes</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Check className="w-4 h-4" />
+              <span>10 Vídeos (Reels)</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Check className="w-4 h-4" />
+              <span>Tráfego pago Facebook/Instagram</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Check className="w-4 h-4" />
+              <span>Tráfego pago Google/YouTube</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Check className="w-4 h-4" />
+              <span>Bio profissional completa</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Check className="w-4 h-4" />
+              <span>Link na bio Instagram</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Check className="w-4 h-4" />
+              <span>Checklist digital personalizado</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Check className="w-4 h-4" />
+              <span>Atendimento VIP WhatsApp</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Check className="w-4 h-4" />
+              <span>Relatório mensal detalhado</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Check className="w-4 h-4" />
+              <span>BÔNUS: Website ou Landing Page</span>
+            </div>
+          </div>
+
+          <Button 
+            variant="outline" 
+            size="lg"
+            className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary font-bold text-lg px-12 py-4"
+          >
+            QUERO DOMINAR O MARKETING AGORA
+          </Button>
+          
+          <div className="mt-4 text-primary-foreground/80 text-sm">
+            Últimas vagas disponíveis • Acesso imediato
+          </div>
+          
+          <div className="mt-6 text-primary-foreground/60 text-sm">
+            Garantia de 30 dias ou seu dinheiro de volta
+          </div>
         </div>
 
         {/* Main Plans */}
