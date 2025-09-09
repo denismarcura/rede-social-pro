@@ -43,7 +43,15 @@ const Hero = () => {
             <Button variant="hero" size="lg" className="text-lg px-8 py-4">
               Você tem alguma dúvida?
             </Button>
-            <Button variant="outline" size="lg" className="text-lg px-8 py-4">
+            <Button 
+              variant="outline" 
+              size="lg" 
+              className="text-lg px-8 py-4"
+              onClick={() => {
+                const servicesSection = document.getElementById('services');
+                servicesSection?.scrollIntoView({ behavior: 'smooth' });
+              }}
+            >
               Ver Nossos Serviços
             </Button>
           </div>

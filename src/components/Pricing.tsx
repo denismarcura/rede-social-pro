@@ -70,6 +70,7 @@ const Pricing = () => {
         "Atendimento VIP WhatsApp",
         "Relatório mensal detalhado",
         "BÔNUS: Website ou Landing Page",
+        "BÔNUS: Folder Digital Profissional",
         "3x sem juros no cartão"
       ]
     }
