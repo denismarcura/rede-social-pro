@@ -5,8 +5,6 @@ import { ExternalLink, Instagram, Globe } from "lucide-react";
 
 const Portfolio = () => {
   const websites = [
-    { name: "Nutri Ser Terapias", url: "https://nutriserterapias.com.br/" },
-    { name: "MRJ Corretora", url: "https://mrjcorretora.com.br/" },
     { name: "Temas Ambiental", url: "https://temasaambiental.com.br/" },
     { name: "Veg Certificado", url: "https://vegcertificado.com.br/" },
     { name: "Mega Office Coworking", url: "https://megaofficecoworking.com.br/" },
