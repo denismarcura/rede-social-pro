@@ -1,7 +1,7 @@
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, Instagram, Globe } from "lucide-react";
+import { ExternalLink, Instagram, Globe, Play } from "lucide-react";
 
 const Portfolio = () => {
   const websites = [
@@ -22,6 +22,15 @@ const Portfolio = () => {
     { name: "Express MFT", handle: "@expressmft", url: "https://www.instagram.com/expressmft/" },
     { name: "Dr. Danilo Talarico", handle: "@drdanilotalarico", url: "https://www.instagram.com/drdanilotalarico/" },
     { name: "Friesian Marchador", handle: "@friesianmarchador", url: "https://www.instagram.com/friesianmarchador/" }
+  ];
+
+  const youtubeVideos = [
+    { title: "Vídeo Promocional 1", url: "https://www.youtube.com/shorts/_l8sT55Us78?feature=share" },
+    { title: "Vídeo Promocional 2", url: "https://www.youtube.com/shorts/sObo7I5u8kQ?feature=share" },
+    { title: "Vídeo Promocional 3", url: "https://www.youtube.com/shorts/b_DKeoE_OSA?feature=share" },
+    { title: "Vídeo Promocional 4", url: "https://www.youtube.com/shorts/3OOU8uOndMQ?feature=share" },
+    { title: "Vídeo Promocional 5", url: "https://www.youtube.com/shorts/D_fHm7jL2JQ?feature=share" },
+    { title: "Vídeo Promocional 6", url: "https://www.youtube.com/shorts/QQNrq9-Yurg?feature=share" }
   ];
 
   return (
@@ -64,7 +73,7 @@ const Portfolio = () => {
         </div>
 
         {/* Clientes Instagram */}
-        <div>
+        <div className="mb-16">
           <h3 className="text-2xl font-bold text-center mb-8 text-primary">
             <Instagram className="w-6 h-6 inline-block mr-2" />
             Clientes do Instagram que Cuidamos
@@ -83,6 +92,35 @@ const Portfolio = () => {
                   >
                     <Instagram className="w-4 h-4 mr-2" />
                     Ver Perfil
+                  </Button>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+
+        {/* Vídeos YouTube */}
+        <div>
+          <h3 className="text-2xl font-bold text-center mb-8 text-primary">
+            <Play className="w-6 h-6 inline-block mr-2" />
+            Criação de vídeos para Reels, TikTok e YouTube
+          </h3>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {youtubeVideos.map((video, index) => (
+              <Card key={index} className="bg-gradient-card border border-primary/20 hover:border-primary/40 transition-all duration-300 hover:shadow-glow">
+                <CardContent className="p-4 text-center">
+                  <div className="bg-red-500/20 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                    <Play className="w-8 h-8 text-red-500" />
+                  </div>
+                  <h4 className="font-semibold mb-3 text-foreground">{video.title}</h4>
+                  <Button 
+                    variant="outline" 
+                    size="sm" 
+                    className="w-full"
+                    onClick={() => window.open(video.url, '_blank')}
+                  >
+                    <Play className="w-4 h-4 mr-2" />
+                    Assistir Vídeo
                   </Button>
                 </CardContent>
               </Card>
