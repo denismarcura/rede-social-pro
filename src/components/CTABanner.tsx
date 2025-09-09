@@ -150,7 +150,7 @@ const CTABanner = () => {
           </div>
 
           <p className="text-sm mt-4 opacity-90">
-            ⚡ Oferta limitada • Apenas hoje • Não perca esta oportunidade!
+            ⚡ Oferta acaba em 48 horas • Não perca esta oportunidade!
           </p>
         </div>
       </div>
