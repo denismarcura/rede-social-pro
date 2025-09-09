@@ -1,7 +1,7 @@
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, Instagram, Globe, Play } from "lucide-react";
+import { ExternalLink, Instagram, Globe, Play, FileText } from "lucide-react";
 
 const Portfolio = () => {
   const websites = [
@@ -31,6 +31,12 @@ const Portfolio = () => {
     { title: "Vídeo Promocional 4", url: "https://www.youtube.com/shorts/3OOU8uOndMQ?feature=share" },
     { title: "Vídeo Promocional 5", url: "https://www.youtube.com/shorts/D_fHm7jL2JQ?feature=share" },
     { title: "Vídeo Promocional 6", url: "https://www.youtube.com/shorts/QQNrq9-Yurg?feature=share" }
+  ];
+
+  const professionalFolders = [
+    { title: "Fortaleza Demolidora", url: "https://redesocialpro.com/wp-content/uploads/2025/09/Fortaleza-Demolidora-em-Sao-Paulo.pdf" },
+    { title: "Coletare", url: "https://redesocialpro.com/wp-content/uploads/2025/09/folder-coletare-NOVO.pdf" },
+    { title: "Rede Social Pro", url: "https://redesocialpro.com/wp-content/uploads/2025/09/Folder-rede-social-pro-04-2025.pdf" }
   ];
 
   return (
@@ -100,7 +106,7 @@ const Portfolio = () => {
         </div>
 
         {/* Vídeos YouTube */}
-        <div>
+        <div className="mb-16">
           <h3 className="text-2xl font-bold text-center mb-8 text-primary">
             <Play className="w-6 h-6 inline-block mr-2" />
             Criação de vídeos para Reels, TikTok e YouTube
@@ -121,6 +127,35 @@ const Portfolio = () => {
                   >
                     <Play className="w-4 h-4 mr-2" />
                     Assistir Vídeo
+                  </Button>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+
+        {/* Folders Profissionais */}
+        <div className="mb-16">
+          <h3 className="text-2xl font-bold text-center mb-8 text-primary">
+            <FileText className="w-6 h-6 inline-block mr-2" />
+            Criação de Folders Profissionais
+          </h3>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {professionalFolders.map((folder, index) => (
+              <Card key={index} className="bg-gradient-card border border-primary/20 hover:border-primary/40 transition-all duration-300 hover:shadow-glow">
+                <CardContent className="p-4 text-center">
+                  <div className="bg-primary/20 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                    <FileText className="w-8 h-8 text-primary" />
+                  </div>
+                  <h4 className="font-semibold mb-3 text-foreground">{folder.title}</h4>
+                  <Button 
+                    variant="outline" 
+                    size="sm" 
+                    className="w-full"
+                    onClick={() => window.open(folder.url, '_blank')}
+                  >
+                    <FileText className="w-4 h-4 mr-2" />
+                    Visualizar Folder
                   </Button>
                 </CardContent>
               </Card>
