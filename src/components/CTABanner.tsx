@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Clock, Zap, Gift } from "lucide-react";
+import { Clock, Zap, Gift, Download } from "lucide-react";
 
 const CTABanner = () => {
   const [timeLeft, setTimeLeft] = useState({
@@ -120,14 +120,28 @@ const CTABanner = () => {
             </div>
           </div>
 
-          {/* CTA Button */}
-          <Button 
-            variant="hero"
-            size="lg" 
-            className="font-bold text-xl px-12 py-6 rounded-full shadow-2xl hover:shadow-glow hover:scale-105 transition-all duration-300"
-          >
-            QUERO APROVEITAR ESTA OFERTA!
-          </Button>
+          {/* CTA Buttons */}
+          <div className="space-y-4">
+            <Button 
+              variant="hero"
+              size="lg" 
+              className="font-bold text-xl px-12 py-6 rounded-full shadow-2xl hover:shadow-glow hover:scale-105 transition-all duration-300"
+            >
+              QUERO APROVEITAR ESTA OFERTA!
+            </Button>
+            
+            <div className="flex justify-center">
+              <Button 
+                variant="outline" 
+                size="sm"
+                className="bg-transparent border-primary/30 text-white hover:bg-primary/10 font-medium"
+                onClick={() => window.open('https://redesocialpro.com/wp-content/uploads/2025/09/Folder-rede-social-pro-04-2025.pdf', '_blank')}
+              >
+                <Download className="w-4 h-4 mr-2" />
+                Baixar Nosso Folder
+              </Button>
+            </div>
+          </div>
 
           <p className="text-sm mt-4 opacity-90">
             ⚡ Oferta limitada • Apenas hoje • Não perca esta oportunidade!
