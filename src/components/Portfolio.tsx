@@ -10,7 +10,9 @@ const Portfolio = () => {
     { name: "Mega Office Coworking", url: "https://megaofficecoworking.com.br/" },
     { name: "Juliana MV Ergna", url: "https://julianamvergna.com.br/" },
     { name: "Inova Logos", url: "https://inovalogos.com.br/" },
-    { name: "Rede Social Pro", url: "https://redesocialpro.com/" }
+    { name: "Rede Social Pro", url: "https://redesocialpro.com/" },
+    { name: "Miano Frezzarin", url: "https://mianofrezzarin.com.br/" },
+    { name: "Gold Brasil Polímeros", url: "https://goldbrasilpolimeros.com.br/" }
   ];
 
   const instagramClients = [
@@ -39,7 +41,7 @@ const Portfolio = () => {
         <div className="mb-16">
           <h3 className="text-2xl font-bold text-center mb-8 text-primary">
             <Globe className="w-6 h-6 inline-block mr-2" />
-            Sites que Desenvolvemos
+            + DE 7000 SITES, LANDING PAGES E LOJAS VIRTUAIS EM 30 ANOS DE EXCELÊNCIA
           </h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {websites.map((site, index) => (
