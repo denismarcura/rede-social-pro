@@ -11,11 +11,17 @@ const Hero = () => {
         </p>
       </div>
       
-      <section className="relative min-h-screen bg-gradient-dark flex items-center overflow-hidden">
-      {/* Background pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,hsl(24_95%_53%)_1px,transparent_0)] bg-[size:50px_50px]" />
-      </div>
+      <section className="relative py-20 bg-gradient-dark flex items-center overflow-hidden">
+        {/* Background image with transparency */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center opacity-10"
+          style={{ backgroundImage: `url(${heroImage})` }}
+        />
+        
+        {/* Background pattern */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,hsl(24_95%_53%)_1px,transparent_0)] bg-[size:50px_50px]" />
+        </div>
       
       <div className="container mx-auto px-4 grid lg:grid-cols-2 gap-12 items-center relative z-10">
         {/* Content */}
