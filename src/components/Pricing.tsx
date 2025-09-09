@@ -96,24 +96,24 @@ const Pricing = () => {
         </div>
 
         {/* Special Promotion */}
-        <div className="bg-gradient-primary rounded-2xl p-8 mb-16 border border-primary/20 text-center">
-          <h3 className="text-3xl font-bold text-primary-foreground mb-4">
+        <div className="bg-gradient-dark rounded-2xl p-8 mb-16 border-2 border-primary shadow-glow text-center">
+          <h3 className="text-3xl font-bold text-primary mb-4">
             Marketing Digital Definitivo
           </h3>
-          <p className="text-primary-foreground/90 mb-6">
+          <p className="text-foreground/90 mb-6">
             Domine o marketing digital com estratégias profissionais que geram resultados reais.
           </p>
           
           <div className="mb-6">
-            <div className="text-5xl font-bold text-primary-foreground mb-2">
+            <div className="text-5xl font-bold text-primary mb-2">
               3x de R$ 199
             </div>
-            <div className="text-primary-foreground/80">
+            <div className="text-foreground/80">
               ou R$ 549 no PIX (7% de desconto)
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-4 max-w-4xl mx-auto mb-8 text-sm text-primary-foreground">
+          <div className="grid grid-cols-2 gap-4 max-w-4xl mx-auto mb-8 text-sm text-foreground">
             <div className="flex items-center gap-2">
               <Check className="w-4 h-4" />
               <span>60 Criativos profissionais</span>
@@ -169,18 +169,18 @@ const Pricing = () => {
           </div>
 
           <Button 
-            variant="outline" 
+            variant="hero" 
             size="lg"
-            className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary font-bold text-lg px-12 py-4"
+            className="font-bold text-lg px-12 py-4"
           >
             QUERO DOMINAR O MARKETING AGORA
           </Button>
           
-          <div className="mt-4 text-primary-foreground/80 text-sm">
+          <div className="mt-4 text-primary/80 text-sm">
             Últimas vagas disponíveis • Acesso imediato
           </div>
           
-          <div className="mt-6 text-primary-foreground/60 text-sm">
+          <div className="mt-6 text-foreground/60 text-sm">
             Garantia de 30 dias ou seu dinheiro de volta
           </div>
         </div>
