@@ -1,7 +1,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Check, Star } from "lucide-react";
+import { Check, Star, CreditCard, DollarSign, Smartphone, Users, TrendingUp, Clock, X, Percent } from "lucide-react";
 
 const Pricing = () => {
   const plans = [
@@ -88,11 +88,54 @@ const Pricing = () => {
         <div className="text-center mb-16">
           <Badge variant="secondary" className="mb-4">Planos e Investimento</Badge>
           <h2 className="text-4xl font-bold mb-4">
-            Escolha o <span className="text-primary">Plano Ideal</span> para Seu Negócio
+            <span className="text-primary">ORÇAMENTO</span>
+            <br />
+            <span className="text-foreground">MARKETING</span> Digital Completo
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Oferecemos diferentes planos para atender às necessidades específicas do seu negócio
-          </p>
+          
+          {/* Statistics Icons */}
+          <div className="grid grid-cols-3 gap-8 pt-8 max-w-2xl mx-auto mb-12">
+            <div className="text-center">
+              <div className="bg-primary/10 p-4 rounded-full w-16 h-16 mx-auto mb-3 flex items-center justify-center">
+                <Users className="w-8 h-8 text-primary" />
+              </div>
+              <div className="text-2xl font-bold text-primary">500+</div>
+              <div className="text-sm text-muted-foreground">Clientes Atendidos</div>
+            </div>
+            <div className="text-center">
+              <div className="bg-primary/10 p-4 rounded-full w-16 h-16 mx-auto mb-3 flex items-center justify-center">
+                <TrendingUp className="w-8 h-8 text-primary" />
+              </div>
+              <div className="text-2xl font-bold text-primary">300%</div>
+              <div className="text-sm text-muted-foreground">Crescimento Médio</div>
+            </div>
+            <div className="text-center">
+              <div className="bg-primary/10 p-4 rounded-full w-16 h-16 mx-auto mb-3 flex items-center justify-center">
+                <Clock className="w-8 h-8 text-primary" />
+              </div>
+              <div className="text-2xl font-bold text-primary">24/7</div>
+              <div className="text-sm text-muted-foreground">Suporte Online</div>
+            </div>
+          </div>
+          
+          {/* Special Highlights */}
+          <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-8">
+            <div className="bg-gradient-primary p-4 rounded-lg text-primary-foreground">
+              <CreditCard className="w-8 h-8 mx-auto mb-2" />
+              <div className="font-bold">3x sem juros</div>
+              <div className="text-sm">No cartão de crédito</div>
+            </div>
+            <div className="bg-red-500/20 border border-red-500 p-4 rounded-lg">
+              <X className="w-8 h-8 mx-auto mb-2 text-red-500" />
+              <div className="font-bold text-red-500">SEM FIDELIDADE</div>
+              <div className="text-sm">Cancele quando quiser</div>
+            </div>
+            <div className="bg-green-500/20 border border-green-500 p-4 rounded-lg">
+              <Percent className="w-8 h-8 mx-auto mb-2 text-green-500" />
+              <div className="font-bold text-green-500">50% OFF</div>
+              <div className="text-sm">Preços promocionais</div>
+            </div>
+          </div>
         </div>
 
         {/* Special Promotion */}
@@ -264,12 +307,21 @@ const Pricing = () => {
         {/* Payment Methods */}
         <div className="mt-12 text-center">
           <h3 className="text-xl font-semibold mb-4">Formas de Pagamento</h3>
-          <div className="flex justify-center items-center gap-8 text-muted-foreground">
-            <span>PIX</span>
+          <div className="flex justify-center items-center gap-8">
+            <div className="flex items-center gap-2 text-muted-foreground">
+              <Smartphone className="w-5 h-5 text-primary" />
+              <span>PIX</span>
+            </div>
             <div className="w-px h-6 bg-border" />
-            <span>Boleto Bancário</span>
+            <div className="flex items-center gap-2 text-muted-foreground">
+              <DollarSign className="w-5 h-5 text-primary" />
+              <span>Boleto Bancário</span>
+            </div>
             <div className="w-px h-6 bg-border" />
-            <span>Cartão de Crédito</span>
+            <div className="flex items-center gap-2 text-muted-foreground">
+              <CreditCard className="w-5 h-5 text-primary" />
+              <span>Cartão de Crédito</span>
+            </div>
           </div>
         </div>
       </div>
