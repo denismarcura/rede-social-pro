@@ -1,0 +1,106 @@
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { ExternalLink, Instagram, Globe } from "lucide-react";
+
+const Portfolio = () => {
+  const websites = [
+    { name: "Nutri Ser Terapias", url: "https://nutriserterapias.com.br/" },
+    { name: "MRJ Corretora", url: "https://mrjcorretora.com.br/" },
+    { name: "Temas Ambiental", url: "https://temasaambiental.com.br/" },
+    { name: "Veg Certificado", url: "https://vegcertificado.com.br/" },
+    { name: "Mega Office Coworking", url: "https://megaofficecoworking.com.br/" },
+    { name: "Juliana MV Ergna", url: "https://julianamvergna.com.br/" },
+    { name: "Inova Logos", url: "https://inovalogos.com.br/" },
+    { name: "Rede Social Pro", url: "https://redesocialpro.com/" }
+  ];
+
+  const instagramClients = [
+    { name: "MRJ Corretora de Seguros", handle: "@mrjcorretoradeseguros", url: "https://www.instagram.com/mrjcorretoradeseguros/" },
+    { name: "Geo Nasser", handle: "@_geonasser", url: "https://www.instagram.com/_geonasser/" },
+    { name: "Demolidora Fortaleza", handle: "@demolidora_fortaleza", url: "https://www.instagram.com/demolidora_fortaleza/" },
+    { name: "Express MFT", handle: "@expressmft", url: "https://www.instagram.com/expressmft/" },
+    { name: "Dr. Danilo Talarico", handle: "@drdanilotalarico", url: "https://www.instagram.com/drdanilotalarico/" },
+    { name: "Friesian Marchador", handle: "@friesianmarchador", url: "https://www.instagram.com/friesianmarchador/" }
+  ];
+
+  return (
+    <section id="portfolio" className="py-20 bg-gradient-dark">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-16">
+          <Badge variant="secondary" className="mb-4">Nosso Portfólio</Badge>
+          <h2 className="text-4xl font-bold mb-4">
+            <span className="text-primary">NOSSOS</span> Trabalhos
+          </h2>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            Confira alguns dos projetos que desenvolvemos e clientes que atendemos
+          </p>
+        </div>
+
+        {/* Websites Desenvolvidos */}
+        <div className="mb-16">
+          <h3 className="text-2xl font-bold text-center mb-8 text-primary">
+            <Globe className="w-6 h-6 inline-block mr-2" />
+            Sites que Desenvolvemos
+          </h3>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {websites.map((site, index) => (
+              <Card key={index} className="bg-gradient-card border border-primary/20 hover:border-primary/40 transition-all duration-300 hover:shadow-glow">
+                <CardContent className="p-4 text-center">
+                  <h4 className="font-semibold mb-3 text-foreground">{site.name}</h4>
+                  <Button 
+                    variant="outline" 
+                    size="sm" 
+                    className="w-full"
+                    onClick={() => window.open(site.url, '_blank')}
+                  >
+                    <ExternalLink className="w-4 h-4 mr-2" />
+                    Visitar Site
+                  </Button>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+
+        {/* Clientes Instagram */}
+        <div>
+          <h3 className="text-2xl font-bold text-center mb-8 text-primary">
+            <Instagram className="w-6 h-6 inline-block mr-2" />
+            Clientes do Instagram que Cuidamos
+          </h3>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {instagramClients.map((client, index) => (
+              <Card key={index} className="bg-gradient-card border border-primary/20 hover:border-primary/40 transition-all duration-300 hover:shadow-glow">
+                <CardContent className="p-4 text-center">
+                  <h4 className="font-semibold mb-2 text-foreground">{client.name}</h4>
+                  <p className="text-primary mb-3 font-medium">{client.handle}</p>
+                  <Button 
+                    variant="outline" 
+                    size="sm" 
+                    className="w-full"
+                    onClick={() => window.open(client.url, '_blank')}
+                  >
+                    <Instagram className="w-4 h-4 mr-2" />
+                    Ver Perfil
+                  </Button>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+
+        <div className="text-center mt-12">
+          <p className="text-muted-foreground mb-4">
+            Quer ver seu projeto aqui também?
+          </p>
+          <Button variant="hero" size="lg">
+            Solicitar Orçamento
+          </Button>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Portfolio;
