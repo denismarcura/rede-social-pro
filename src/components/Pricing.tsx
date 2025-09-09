@@ -77,11 +77,14 @@ const Pricing = () => {
   ];
 
   const additionalServices = [
-    { service: "Criação de Landing Page", price: "R$ 1.997" },
-    { service: "Criação de Folders", price: "R$ 397" },
-    { service: "Consultoria Estratégica", price: "R$ 297/hora" },
+    { service: "Criação de Landing Page", price: "Sob consulta" },
+    { service: "Criação de Folders", price: "Sob consulta" },
+    { service: "Mentoria", price: "Sob consulta" },
+    { service: "Tráfego Orgânico", price: "Sob consulta" },
+    { service: "Ebooks", price: "Sob consulta" },
+    { service: "Consultoria Estratégica", price: "Sob consulta" },
     { service: "Fotografia/Videografia de Produtos", price: "Sob consulta" },
-    { service: "Criação de Logotipo", price: "R$ 897" }
+    { service: "Criação de Logotipo", price: "Sob consulta" }
   ];
 
   return (
