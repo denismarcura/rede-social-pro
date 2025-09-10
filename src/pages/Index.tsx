@@ -3,7 +3,7 @@ import CTABanner from "@/components/CTABanner";
 import Services from "@/components/Services";
 import Process from "@/components/Process";
 import Portfolio from "@/components/Portfolio";
-
+import WhatsAppFloat from "@/components/WhatsAppFloat";
 import Pricing from "@/components/Pricing";
 import Testimonials from "@/components/Testimonials";
 import FAQ from "@/components/FAQ";
@@ -22,6 +22,7 @@ const Index = () => {
       <Testimonials />
       <FAQ />
       <Contact />
+      <WhatsAppFloat />
     </div>
   );
 };
