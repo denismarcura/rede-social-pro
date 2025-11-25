@@ -10,7 +10,6 @@ const Portfolio = () => {
     { name: "Mega Office Coworking", url: "https://megaofficecoworking.com.br/" },
     { name: "Juliana MV Ergna", url: "https://julianamvergna.com.br/" },
     { name: "Inova Logos", url: "https://inovalogos.com.br/" },
-    { name: "Rede Social Pro", url: "https://redesocialpro.com/" },
     { name: "Miano Frezzarin", url: "https://mianofrezzarin.com.br/" },
     { name: "Gold Brasil Polímeros", url: "https://goldbrasilpolimeros.com.br/" },
     { name: "Mídia Foco Digital", url: "https://rede-social-pro-kit.lovable.app/" }
@@ -36,8 +35,7 @@ const Portfolio = () => {
 
   const professionalFolders = [
     { title: "Fortaleza Demolidora", url: "https://redesocialpro.com/wp-content/uploads/2025/09/Fortaleza-Demolidora-em-Sao-Paulo.pdf" },
-    { title: "Coletare", url: "https://redesocialpro.com/wp-content/uploads/2025/09/folder-coletare-NOVO.pdf" },
-    { title: "Rede Social Pro", url: "https://redesocialpro.com/wp-content/uploads/2025/09/Folder-rede-social-pro-04-2025.pdf" }
+    { title: "Coletare", url: "https://redesocialpro.com/wp-content/uploads/2025/09/folder-coletare-NOVO.pdf" }
   ];
 
   return (
