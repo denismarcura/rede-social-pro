@@ -77,7 +77,7 @@ const Pricing = () => {
   ];
 
   const additionalServices = [
-    { service: "Criação de Landing Page", price: "Sob consulta" },
+    { service: "Criação de Landing Page **", price: "Sob consulta", note: "** Fechando plano ouro ganhe gratuitamente" },
     { service: "Criação de Folders", price: "Sob consulta" },
     { service: "Mentoria", price: "Sob consulta" },
     { service: "Tráfego Orgânico", price: "Sob consulta" },
@@ -301,6 +301,9 @@ const Pricing = () => {
               <div key={index} className="text-center p-4 border border-primary/10 rounded-lg hover:border-primary/30 transition-colors duration-300">
                 <h4 className="font-semibold mb-2">{item.service}</h4>
                 <p className="text-primary font-bold text-lg">{item.price}</p>
+                {item.note && (
+                  <p className="text-xs text-muted-foreground mt-2">{item.note}</p>
+                )}
               </div>
             ))}
           </div>
