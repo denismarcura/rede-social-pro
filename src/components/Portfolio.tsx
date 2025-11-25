@@ -170,7 +170,7 @@ const Portfolio = () => {
           <Button 
             variant="hero" 
             size="lg"
-            onClick={() => window.open('https://api.whatsapp.com/send/?phone=5519994572513&text&type=phone_number&app_absent=0', '_blank')}
+            onClick={() => window.open('https://wa.me/5519993937708?text=Ol%C3%A1%2C%20estou%20com%20d%C3%BAvidas%20pode%20me%20ajudar%0A', '_blank')}
           >
             Solicitar Orçamento
           </Button>
