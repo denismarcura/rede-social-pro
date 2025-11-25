@@ -12,7 +12,8 @@ const Portfolio = () => {
     { name: "Inova Logos", url: "https://inovalogos.com.br/" },
     { name: "Rede Social Pro", url: "https://redesocialpro.com/" },
     { name: "Miano Frezzarin", url: "https://mianofrezzarin.com.br/" },
-    { name: "Gold Brasil Polímeros", url: "https://goldbrasilpolimeros.com.br/" }
+    { name: "Gold Brasil Polímeros", url: "https://goldbrasilpolimeros.com.br/" },
+    { name: "Mídia Foco Digital", url: "https://rede-social-pro-kit.lovable.app/" }
   ];
 
   const instagramClients = [
