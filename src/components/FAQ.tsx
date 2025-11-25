@@ -12,6 +12,10 @@ const FAQ = () => {
       answer: "O pagamento é pré-pago, realizado no início de cada ciclo mensal. Aceitamos PIX, boleto bancário e cartão de crédito. Para cartão de crédito há um acréscimo de 5% no valor."
     },
     {
+      question: "Como funciona a landing page ou website gratuito?",
+      answer: "Trabalhamos com a Lovable e o sistema só funciona dentro do ambiente deles, o valor mensal é de R$ 25,00 e está incluído 1 conta de e-mail, suporte e atualizações."
+    },
+    {
       question: "Preciso fornecer as fotos e vídeos?",
       answer: "Recomendamos que o cliente forneça o material visual de seus produtos/serviços, mas oferecemos serviços de produção de conteúdo visual à parte. Temos parcerias com fotógrafos profissionais."
     },
@@ -75,20 +79,12 @@ const FAQ = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a 
-                href="https://wa.me/5519994572513" 
+                href="https://wa.me/5519993937708?text=Ol%C3%A1%2C%20estou%20com%20d%C3%BAvidas%20pode%20me%20ajudar%0A" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-gradient-primary text-primary-foreground px-6 py-3 rounded-lg hover:shadow-glow transition-all duration-300 font-semibold"
               >
-                WhatsApp: (19) 99457-2513
-              </a>
-              <a 
-                href="https://wa.me/5519995061049" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-gradient-primary text-primary-foreground px-6 py-3 rounded-lg hover:shadow-glow transition-all duration-300 font-semibold"
-              >
-                WhatsApp: (19) 99506-1049
+                WhatsApp: (19) 99393-7708
               </a>
             </div>
           </div>
