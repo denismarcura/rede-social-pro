@@ -8,7 +8,7 @@ const Testimonials = () => {
       name: "Maria Silva",
       company: "Boutique da Maria",
       role: "Proprietária",
-      content: "Desde que começamos a trabalhar com a Rede Social Pro, nossas vendas aumentaram 300%. O conteúdo é de alta qualidade e o atendimento é excepcional.",
+      content: "Desde que começamos a trabalhar com a equipe, nossas vendas aumentaram 300%. O conteúdo é de alta qualidade e o atendimento é excepcional.",
       rating: 5,
       avatar: "MS"
     },
