@@ -8,20 +8,36 @@ import Pricing from "@/components/Pricing";
 import Testimonials from "@/components/Testimonials";
 import FAQ from "@/components/FAQ";
 import Contact from "@/components/Contact";
+import ScrollReveal from "@/components/ScrollReveal";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Hero />
-      <CTABanner />
-      <Services />
-      <Process />
-      <Portfolio />
-      
-      <Pricing />
-      <Testimonials />
-      <FAQ />
-      <Contact />
+      <ScrollReveal>
+        <CTABanner />
+      </ScrollReveal>
+      <ScrollReveal delay={0.1}>
+        <Services />
+      </ScrollReveal>
+      <ScrollReveal delay={0.1}>
+        <Process />
+      </ScrollReveal>
+      <ScrollReveal delay={0.1}>
+        <Portfolio />
+      </ScrollReveal>
+      <ScrollReveal delay={0.1}>
+        <Pricing />
+      </ScrollReveal>
+      <ScrollReveal delay={0.1}>
+        <Testimonials />
+      </ScrollReveal>
+      <ScrollReveal delay={0.1}>
+        <FAQ />
+      </ScrollReveal>
+      <ScrollReveal delay={0.1}>
+        <Contact />
+      </ScrollReveal>
       <WhatsAppFloat />
     </div>
   );
