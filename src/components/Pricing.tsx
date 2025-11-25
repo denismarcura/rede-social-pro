@@ -144,93 +144,88 @@ const Pricing = () => {
         </div>
 
         {/* Special Promotion */}
-        <div className="bg-gradient-dark rounded-2xl p-8 mb-16 border-2 border-primary shadow-glow text-center">
-          <h3 className="text-3xl font-bold text-primary mb-4">
-            Marketing Digital Definitivo
-          </h3>
-          <p className="text-foreground/90 mb-6">
-            Domine o marketing digital com estratégias profissionais que geram resultados reais.
-          </p>
-          
-          <div className="mb-6">
-            <div className="text-5xl font-bold text-primary mb-2">
-              3x de R$ 199
+        <div className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 rounded-2xl p-8 md:p-12 mb-16 border-2 border-primary shadow-glow">
+          <div className="text-center mb-8">
+            <h3 className="text-4xl md:text-5xl font-bold text-primary mb-6">
+              MARKETING DIGITAL COMPLETO
+            </h3>
+            <p className="text-xl md:text-2xl text-foreground font-semibold mb-2">
+              GANHE UMA LANDING PAGE OU WEBSITE
+            </p>
+            <p className="text-lg text-foreground/80">
+              FECHANDO NOSSO PLANO OURO
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-4 max-w-4xl mx-auto mb-8 text-foreground">
+            <div className="flex items-start gap-3">
+              <Check className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
+              <span>60 CRIATIVOS</span>
             </div>
-            <div className="text-foreground/80">
-              ou R$ 549 no PIX (7% de desconto)
+            <div className="flex items-start gap-3">
+              <Check className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
+              <span>60 TEXTOS COM SEO</span>
+            </div>
+            <div className="flex items-start gap-3">
+              <Check className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
+              <span>60 POSTAGENS</span>
+            </div>
+            <div className="flex items-start gap-3">
+              <Check className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
+              <span>10 Stories</span>
+            </div>
+            <div className="flex items-start gap-3">
+              <Check className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
+              <span>10 VÍDEOS REELS</span>
+            </div>
+            <div className="flex items-start gap-3">
+              <Check className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
+              <span>TRÁFEGO PAGO (Facebook Instagram)</span>
+            </div>
+            <div className="flex items-start gap-3">
+              <Check className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
+              <span>TRÁFEGO PAGO (Google e Youtube)</span>
+            </div>
+            <div className="flex items-start gap-3">
+              <Check className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
+              <span>BIO PROFISSIONAL</span>
+            </div>
+            <div className="flex items-start gap-3">
+              <Check className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
+              <span>LINKBIO INSTAGRAM</span>
+            </div>
+            <div className="flex items-start gap-3">
+              <Check className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
+              <span>CHECKLIST DIGITAL DE SEU INSTAGRAM</span>
+            </div>
+            <div className="flex items-start gap-3">
+              <Check className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
+              <span>ATENDIMENTO VIP WHATSAPP</span>
+            </div>
+            <div className="flex items-start gap-3">
+              <Check className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
+              <span>RELATÓRIO MENSAL</span>
+            </div>
+          </div>
+          
+          <div className="text-center mb-8">
+            <div className="text-foreground/80 text-lg mb-2">A PARTIR DE</div>
+            <div className="text-6xl font-bold text-primary mb-2">
+              R$ 599<span className="text-3xl">,00</span>
+            </div>
+            <div className="text-foreground/80 text-lg">
+              EM 3X SEM JUROS NO CARTÃO
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-4 max-w-4xl mx-auto mb-8 text-sm text-foreground">
-            <div className="flex items-center gap-2">
-              <Check className="w-4 h-4" />
-              <span>60 Criativos profissionais</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Check className="w-4 h-4" />
-              <span>60 Textos otimizados com SEO</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Check className="w-4 h-4" />
-              <span>60 Postagens estratégicas</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Check className="w-4 h-4" />
-              <span>10 Stories envolventes</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Check className="w-4 h-4" />
-              <span>10 Vídeos (Reels)</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Check className="w-4 h-4" />
-              <span>Tráfego pago Facebook/Instagram</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Check className="w-4 h-4" />
-              <span>Tráfego pago Google/YouTube</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Check className="w-4 h-4" />
-              <span>Bio profissional completa</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Check className="w-4 h-4" />
-              <span>Link na bio Instagram</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Check className="w-4 h-4" />
-              <span>Checklist digital personalizado</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Check className="w-4 h-4" />
-              <span>Atendimento VIP WhatsApp</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Check className="w-4 h-4" />
-              <span>Relatório mensal detalhado</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Check className="w-4 h-4" />
-              <span>BÔNUS: Website ou Landing Page</span>
-            </div>
-          </div>
-
-          <Button 
-            variant="hero" 
-            size="lg"
-            className="font-bold text-lg px-12 py-4"
-            onClick={() => window.open('https://api.whatsapp.com/send/?phone=5519994572513&text&type=phone_number&app_absent=0', '_blank')}
-          >
-            QUERO DOMINAR O MARKETING AGORA
-          </Button>
-          
-          <div className="mt-4 text-primary/80 text-sm">
-            Últimas vagas disponíveis • Acesso imediato
-          </div>
-          
-          <div className="mt-6 text-foreground/60 text-sm">
-            Garantia de 30 dias ou seu dinheiro de volta
+          <div className="text-center">
+            <Button 
+              size="lg"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-lg px-12 py-6 rounded-lg"
+              onClick={() => window.open('https://api.whatsapp.com/send/?phone=5519994572513&text&type=phone_number&app_absent=0', '_blank')}
+            >
+              QUERO COMEÇAR AGORA
+            </Button>
           </div>
         </div>
 
