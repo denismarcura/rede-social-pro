@@ -50,12 +50,12 @@ const Contact = () => {
               <h3 className="text-xl font-semibold mb-2">WhatsApp Principal</h3>
               <p className="text-muted-foreground mb-4">Fale diretamente com nossa equipe</p>
               <a 
-                href="https://wa.me/5519994572513" 
+                href="https://wa.me/5519993937708?text=Ol%C3%A1%2C%20estou%20com%20d%C3%BAvidas%20pode%20me%20ajudar%0A" 
                 target="_blank" 
                 rel="noopener noreferrer"
               >
                 <Button variant="outline" className="w-full group-hover:border-green-500 group-hover:text-green-500 transition-colors">
-                  (19) 99457-2513
+                  (19) 99393-7708
                 </Button>
               </a>
             </CardContent>
@@ -70,12 +70,12 @@ const Contact = () => {
               <h3 className="text-xl font-semibold mb-2">WhatsApp Secundário</h3>
               <p className="text-muted-foreground mb-4">Linha alternativa de atendimento</p>
               <a 
-                href="https://wa.me/5519995061049" 
+                href="https://wa.me/5519993937708?text=Ol%C3%A1%2C%20estou%20com%20d%C3%BAvidas%20pode%20me%20ajudar%0A" 
                 target="_blank" 
                 rel="noopener noreferrer"
               >
                 <Button variant="outline" className="w-full group-hover:border-green-500 group-hover:text-green-500 transition-colors">
-                  (19) 99506-1049
+                  (19) 99393-7708
                 </Button>
               </a>
             </CardContent>
@@ -113,7 +113,7 @@ const Contact = () => {
                 Entre em contato agora e receba uma proposta personalizada
               </p>
               <a 
-                href="https://wa.me/5519994572513?text=Olá! Gostaria de solicitar um orçamento para gestão de redes sociais." 
+                href="https://wa.me/5519993937708?text=Ol%C3%A1%2C%20estou%20com%20d%C3%BAvidas%20pode%20me%20ajudar%0A" 
                 target="_blank" 
                 rel="noopener noreferrer"
               >

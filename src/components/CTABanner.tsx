@@ -126,7 +126,7 @@ const CTABanner = () => {
               variant="hero"
               size="lg" 
               className="font-bold text-xl px-12 py-6 rounded-full shadow-2xl hover:shadow-glow hover:scale-105 transition-all duration-300"
-              onClick={() => window.open('https://api.whatsapp.com/send/?phone=5519994572513&text&type=phone_number&app_absent=0', '_blank')}
+              onClick={() => window.open('https://wa.me/5519993937708?text=Ol%C3%A1%2C%20estou%20com%20d%C3%BAvidas%20pode%20me%20ajudar%0A', '_blank')}
             >
               QUERO APROVEITAR ESTA OFERTA!
             </Button>
