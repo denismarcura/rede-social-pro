@@ -2,6 +2,12 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Star, Quote } from "lucide-react";
 import { useCounterAnimation } from "@/hooks/use-counter-animation";
+import avatarMaria from "@/assets/avatar-maria.jpg";
+import avatarJoao from "@/assets/avatar-joao.jpg";
+import avatarAna from "@/assets/avatar-ana.jpg";
+import avatarCarlos from "@/assets/avatar-carlos.jpg";
+import avatarLuciana from "@/assets/avatar-luciana.jpg";
+import avatarRoberto from "@/assets/avatar-roberto.jpg";
 
 const Testimonials = () => {
   const counter1 = useCounterAnimation(98);
@@ -15,7 +21,7 @@ const Testimonials = () => {
       role: "Proprietária",
       content: "Desde que começamos a trabalhar com a equipe, nossas vendas aumentaram 300%. O conteúdo é de alta qualidade e o atendimento é excepcional.",
       rating: 5,
-      avatar: "MS"
+      image: avatarMaria
     },
     {
       name: "João Santos",
@@ -23,7 +29,7 @@ const Testimonials = () => {
       role: "Diretor",
       content: "A gestão das nossas redes sociais ficou muito mais profissional. Conseguimos alcançar um público muito maior e aumentar significativamente nossas matrículas.",
       rating: 5,
-      avatar: "JS"
+      image: avatarJoao
     },
     {
       name: "Ana Costa",
@@ -31,7 +37,7 @@ const Testimonials = () => {
       role: "Diretora",
       content: "O trabalho da equipe superou nossas expectativas. A qualidade das artes e a estratégia de conteúdo trouxeram resultados incríveis para nossa clínica.",
       rating: 5,
-      avatar: "AC"
+      image: avatarAna
     },
     {
       name: "Carlos Ferreira",
@@ -39,7 +45,7 @@ const Testimonials = () => {
       role: "Chef/Proprietário",
       content: "Nossa presença no Instagram cresceu exponencialmente. As fotos dos pratos ficaram lindas e conseguimos atrair muito mais clientes para o restaurante.",
       rating: 5,
-      avatar: "CF"
+      image: avatarCarlos
     },
     {
       name: "Luciana Oliveira",
@@ -47,7 +53,7 @@ const Testimonials = () => {
       role: "Sócia",
       content: "Profissionalismo em cada detalhe. A estratégia de conteúdo jurídico educativo nos posicionou como referência no mercado local.",
       rating: 5,
-      avatar: "LO"
+      image: avatarLuciana
     },
     {
       name: "Roberto Mendes",
@@ -55,7 +61,7 @@ const Testimonials = () => {
       role: "Gerente",
       content: "Excelente retorno sobre investimento. As campanhas de tráfego pago trouxeram muitos clientes novos e aumentaram nossas vendas online.",
       rating: 5,
-      avatar: "RM"
+      image: avatarRoberto
     }
   ];
 
@@ -95,9 +101,11 @@ const Testimonials = () => {
                 
                 {/* Author */}
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center text-primary-foreground font-semibold">
-                    {testimonial.avatar}
-                  </div>
+                  <img 
+                    src={testimonial.image} 
+                    alt={testimonial.name}
+                    className="w-12 h-12 rounded-full object-cover"
+                  />
                   <div>
                     <h4 className="font-semibold">{testimonial.name}</h4>
                     <p className="text-sm text-muted-foreground">
