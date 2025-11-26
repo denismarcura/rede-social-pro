@@ -3,7 +3,6 @@ import { Check } from "lucide-react";
 
 const PricingSection = () => {
   const mainOffer = {
-    title: "MARKETING DIGITAL COMPLETO",
     subtitle: "GANHE UMA LANDING PAGE OU WEBSITE",
     subtitle2: "FECHANDO NOSSO PLANO OURO",
     features: [
