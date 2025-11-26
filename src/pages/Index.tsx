@@ -9,6 +9,7 @@ import Testimonials from "@/components/Testimonials";
 import FAQ from "@/components/FAQ";
 import Contact from "@/components/Contact";
 import ScrollReveal from "@/components/ScrollReveal";
+import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
@@ -38,6 +39,7 @@ const Index = () => {
       <ScrollReveal delay={0.1}>
         <Contact />
       </ScrollReveal>
+      <Footer />
       <WhatsAppFloat />
     </div>
   );
