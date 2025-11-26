@@ -79,7 +79,7 @@ const FAQ = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a 
-                href="https://wa.me/5519993937708?text=Ol%C3%A1%2C%20estou%20com%20d%C3%BAvidas%20pode%20me%20ajudar%0A" 
+                href="https://wa.me/5519993937708?text=oL%C3%81%2C%20MARKETING%20DIGITAL%2C%20ESTOU%20COM%20D%C3%9AVIDAS%20PODE%20ME%20AJUDAR%20%3F" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-gradient-primary text-primary-foreground px-6 py-3 rounded-lg hover:shadow-glow transition-all duration-300 font-semibold"
