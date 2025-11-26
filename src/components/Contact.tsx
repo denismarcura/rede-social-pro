@@ -50,7 +50,7 @@ const Contact = () => {
               <h3 className="text-xl font-semibold mb-2">WhatsApp Principal</h3>
               <p className="text-muted-foreground mb-4">Fale diretamente com nossa equipe</p>
               <a 
-                href="https://wa.me/5519993937708?text=Ol%C3%A1%2C%20estou%20com%20d%C3%BAvidas%20pode%20me%20ajudar%0A" 
+                href="https://wa.me/5519993937708?text=oL%C3%81%2C%20MARKETING%20DIGITAL%2C%20ESTOU%20COM%20D%C3%9AVIDAS%20PODE%20ME%20AJUDAR%20%3F"
                 target="_blank" 
                 rel="noopener noreferrer"
               >
@@ -70,7 +70,7 @@ const Contact = () => {
               <h3 className="text-xl font-semibold mb-2">WhatsApp Secundário</h3>
               <p className="text-muted-foreground mb-4">Linha alternativa de atendimento</p>
               <a 
-                href="https://wa.me/5519993937708?text=Ol%C3%A1%2C%20estou%20com%20d%C3%BAvidas%20pode%20me%20ajudar%0A" 
+                href="https://wa.me/5519993937708?text=oL%C3%81%2C%20MARKETING%20DIGITAL%2C%20ESTOU%20COM%20D%C3%9AVIDAS%20PODE%20ME%20AJUDAR%20%3F"
                 target="_blank" 
                 rel="noopener noreferrer"
               >
@@ -113,7 +113,7 @@ const Contact = () => {
                 Entre em contato agora e receba uma proposta personalizada
               </p>
               <a 
-                href="https://wa.me/5519993937708?text=Ol%C3%A1%2C%20estou%20com%20d%C3%BAvidas%20pode%20me%20ajudar%0A" 
+                href="https://wa.me/5519993937708?text=oL%C3%81%2C%20MARKETING%20DIGITAL%2C%20ESTOU%20COM%20D%C3%9AVIDAS%20PODE%20ME%20AJUDAR%20%3F" 
                 target="_blank" 
                 rel="noopener noreferrer"
               >

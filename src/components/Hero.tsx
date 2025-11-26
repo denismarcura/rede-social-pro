@@ -44,7 +44,7 @@ const Hero = () => {
               variant="hero" 
               size="lg" 
               className="text-lg px-8 py-4"
-              onClick={() => window.open('https://wa.me/5519993937708?text=Ol%C3%A1%2C%20estou%20com%20d%C3%BAvidas%20pode%20me%20ajudar%0A', '_blank')}
+              onClick={() => window.open('https://wa.me/5519993937708?text=oL%C3%81%2C%20MARKETING%20DIGITAL%2C%20ESTOU%20COM%20D%C3%9AVIDAS%20PODE%20ME%20AJUDAR%20%3F', '_blank')}
             >
               Você tem alguma dúvida?
             </Button>
