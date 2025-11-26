@@ -1,6 +1,7 @@
 import Hero from "@/components/Hero";
 import PromoCard from "@/components/PromoCard";
 import WhatsAppTestimonials from "@/components/WhatsAppTestimonials";
+import ClientTestimonials from "@/components/ClientTestimonials";
 import PromoBadges from "@/components/PromoBadges";
 import CTABanner from "@/components/CTABanner";
 import Services from "@/components/Services";
@@ -20,6 +21,7 @@ const Index = () => {
       <Hero />
       <PromoCard />
       <WhatsAppTestimonials />
+      <ClientTestimonials />
       <PromoBadges />
       <ScrollReveal>
         <CTABanner />
