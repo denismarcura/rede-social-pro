@@ -4,30 +4,32 @@ import { Clock, Zap, Gift, Download } from "lucide-react";
 
 const CTABanner = () => {
   const [timeLeft, setTimeLeft] = useState({
-    hours: 48,
+    days: 0,
+    hours: 0,
     minutes: 0,
     seconds: 0
   });
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setTimeLeft(prev => {
-        let { hours, minutes, seconds } = prev;
-        
-        if (seconds > 0) {
-          seconds--;
-        } else if (minutes > 0) {
-          minutes--;
-          seconds = 59;
-        } else if (hours > 0) {
-          hours--;
-          minutes = 59;
-          seconds = 59;
-        }
-        
-        return { hours, minutes, seconds };
-      });
-    }, 1000);
+    const calculateTimeLeft = () => {
+      const promoEndDate = new Date('2025-12-12T23:59:59');
+      const now = new Date();
+      const difference = promoEndDate.getTime() - now.getTime();
+
+      if (difference > 0) {
+        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
+        const minutes = Math.floor((difference / 1000 / 60) % 60);
+        const seconds = Math.floor((difference / 1000) % 60);
+
+        setTimeLeft({ days, hours, minutes, seconds });
+      } else {
+        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+      }
+    };
+
+    calculateTimeLeft();
+    const timer = setInterval(calculateTimeLeft, 1000);
 
     return () => clearInterval(timer);
   }, []);
@@ -96,26 +98,32 @@ const CTABanner = () => {
           <div className="mb-8">
             <div className="flex items-center justify-center gap-2 mb-4">
               <Clock className="w-6 h-6 text-primary" />
-              <span className="text-lg font-semibold">PROMOÇÃO ACABA EM:</span>
+              <span className="text-lg font-semibold">PROMOÇÃO ATÉ DIA 12 DE DEZEMBRO DE 2025:</span>
             </div>
-            <div className="flex justify-center gap-4">
-              <div className="bg-card/80 rounded-lg p-4 min-w-[80px] backdrop-blur-sm border border-primary/20">
-                <div className="text-3xl md:text-4xl font-bold text-primary">
+            <div className="flex justify-center gap-3 md:gap-4">
+              <div className="bg-card/80 rounded-lg p-3 md:p-4 min-w-[70px] md:min-w-[80px] backdrop-blur-sm border border-primary/20">
+                <div className="text-2xl md:text-4xl font-bold text-primary">
+                  {String(timeLeft.days).padStart(2, '0')}
+                </div>
+                <div className="text-xs md:text-sm uppercase tracking-wide text-muted-foreground">Dias</div>
+              </div>
+              <div className="bg-card/80 rounded-lg p-3 md:p-4 min-w-[70px] md:min-w-[80px] backdrop-blur-sm border border-primary/20">
+                <div className="text-2xl md:text-4xl font-bold text-primary">
                   {String(timeLeft.hours).padStart(2, '0')}
                 </div>
-                <div className="text-sm uppercase tracking-wide text-muted-foreground">Horas</div>
+                <div className="text-xs md:text-sm uppercase tracking-wide text-muted-foreground">Horas</div>
               </div>
-              <div className="bg-card/80 rounded-lg p-4 min-w-[80px] backdrop-blur-sm border border-primary/20">
-                <div className="text-3xl md:text-4xl font-bold text-primary">
+              <div className="bg-card/80 rounded-lg p-3 md:p-4 min-w-[70px] md:min-w-[80px] backdrop-blur-sm border border-primary/20">
+                <div className="text-2xl md:text-4xl font-bold text-primary">
                   {String(timeLeft.minutes).padStart(2, '0')}
                 </div>
-                <div className="text-sm uppercase tracking-wide text-muted-foreground">Min</div>
+                <div className="text-xs md:text-sm uppercase tracking-wide text-muted-foreground">Min</div>
               </div>
-              <div className="bg-card/80 rounded-lg p-4 min-w-[80px] backdrop-blur-sm border border-primary/20">
-                <div className="text-3xl md:text-4xl font-bold text-primary">
+              <div className="bg-card/80 rounded-lg p-3 md:p-4 min-w-[70px] md:min-w-[80px] backdrop-blur-sm border border-primary/20">
+                <div className="text-2xl md:text-4xl font-bold text-primary">
                   {String(timeLeft.seconds).padStart(2, '0')}
                 </div>
-                <div className="text-sm uppercase tracking-wide text-muted-foreground">Seg</div>
+                <div className="text-xs md:text-sm uppercase tracking-wide text-muted-foreground">Seg</div>
               </div>
             </div>
           </div>
@@ -151,7 +159,7 @@ const CTABanner = () => {
           </div>
 
           <p className="text-sm mt-4 opacity-90">
-            ⚡ Oferta acaba em 48 horas • Não perca esta oportunidade!
+            ⚡ Promoção válida até 12 de dezembro de 2025 • Não perca esta oportunidade!
           </p>
         </div>
       </div>
