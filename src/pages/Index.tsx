@@ -2,7 +2,7 @@ import Hero from "@/components/Hero";
 import PromoCard from "@/components/PromoCard";
 import WhatsAppTestimonials from "@/components/WhatsAppTestimonials";
 import ClientTestimonials from "@/components/ClientTestimonials";
-import PricingSection from "@/components/PricingSection";
+
 import PromoBadges from "@/components/PromoBadges";
 import CTABanner from "@/components/CTABanner";
 import Services from "@/components/Services";
@@ -21,7 +21,6 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Hero />
       <PromoCard />
-      <PricingSection />
       <PromoBadges />
       <WhatsAppTestimonials />
       <ClientTestimonials />
