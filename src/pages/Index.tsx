@@ -21,10 +21,10 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Hero />
       <PromoCard />
-      <WhatsAppTestimonials />
-      <ClientTestimonials />
       <PricingSection />
       <PromoBadges />
+      <WhatsAppTestimonials />
+      <ClientTestimonials />
       <ScrollReveal>
         <CTABanner />
       </ScrollReveal>
