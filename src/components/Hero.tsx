@@ -1,7 +1,12 @@
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-image.jpg";
+import { useCounterAnimation } from "@/hooks/use-counter-animation";
 
 const Hero = () => {
+  const counter1 = useCounterAnimation(500);
+  const counter2 = useCounterAnimation(5000);
+  const counter3 = useCounterAnimation(30);
+
   return (
     <>
       {/* Top Banner */}
@@ -62,16 +67,16 @@ const Hero = () => {
           </div>
           
           <div className="grid grid-cols-3 gap-8 pt-8">
-            <div className="text-center">
-              <div className="text-3xl font-bold text-primary">+500</div>
+            <div className="text-center" ref={counter1.ref}>
+              <div className="text-3xl font-bold text-primary">+{counter1.count}</div>
               <div className="text-sm text-muted-foreground">Clientes Atendidos em 2025</div>
             </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-primary">5000</div>
+            <div className="text-center" ref={counter2.ref}>
+              <div className="text-3xl font-bold text-primary">+{counter2.count}</div>
               <div className="text-sm text-muted-foreground">Crescimento Médio</div>
             </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-primary">30</div>
+            <div className="text-center" ref={counter3.ref}>
+              <div className="text-3xl font-bold text-primary">+{counter3.count}</div>
               <div className="text-sm text-muted-foreground">Anos no Mercado</div>
             </div>
           </div>

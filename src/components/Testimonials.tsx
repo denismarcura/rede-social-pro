@@ -1,8 +1,13 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Star, Quote } from "lucide-react";
+import { useCounterAnimation } from "@/hooks/use-counter-animation";
 
 const Testimonials = () => {
+  const counter1 = useCounterAnimation(98);
+  const counter2 = useCounterAnimation(150);
+  const counter3 = useCounterAnimation(3);
+
   const testimonials = [
     {
       name: "Maria Silva",
@@ -107,20 +112,20 @@ const Testimonials = () => {
 
         {/* Stats */}
         <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-          <div>
-            <div className="text-3xl font-bold text-primary mb-2">98%</div>
+          <div ref={counter1.ref}>
+            <div className="text-3xl font-bold text-primary mb-2">+{counter1.count}%</div>
             <div className="text-sm text-muted-foreground">Taxa de Satisfação</div>
           </div>
-          <div>
-            <div className="text-3xl font-bold text-primary mb-2">150+</div>
+          <div ref={counter2.ref}>
+            <div className="text-3xl font-bold text-primary mb-2">+{counter2.count}</div>
             <div className="text-sm text-muted-foreground">Clientes Atendidos</div>
           </div>
           <div>
-            <div className="text-3xl font-bold text-primary mb-2">5★</div>
+            <div className="text-3xl font-bold text-primary mb-2">+5★</div>
             <div className="text-sm text-muted-foreground">Avaliação Média</div>
           </div>
-          <div>
-            <div className="text-3xl font-bold text-primary mb-2">3 Anos</div>
+          <div ref={counter3.ref}>
+            <div className="text-3xl font-bold text-primary mb-2">+{counter3.count} Anos</div>
             <div className="text-sm text-muted-foreground">No Mercado</div>
           </div>
         </div>
