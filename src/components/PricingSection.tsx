@@ -94,50 +94,60 @@ const PricingSection = () => {
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
+        {/* Pricing Header */}
+        <div className="text-center mb-12">
+          <p className="text-primary font-semibold text-lg mb-2">
+            Planos a partir de R$ 299,00 / Mensais
+          </p>
+        </div>
+
         {/* Main Offer Card */}
         <div className="max-w-4xl mx-auto mb-12">
-          <div className="border-2 border-primary rounded-3xl p-8 bg-card/30 backdrop-blur-sm">
-            <p className="text-center text-white font-semibold text-lg mb-1">
+          <div className="border-2 border-primary rounded-2xl p-8 bg-background/50 backdrop-blur-sm">
+            <h3 className="text-center text-white font-bold text-xl mb-1">
               {mainOffer.subtitle}
-            </p>
-            <p className="text-center text-white/80 text-sm mb-8">
+            </h3>
+            <p className="text-center text-white/70 text-sm mb-8 uppercase tracking-wide">
               {mainOffer.subtitle2}
             </p>
 
             {/* Features Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-4 mb-8 max-w-2xl mx-auto">
-              <div className="space-y-3">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-2 mb-8 max-w-3xl mx-auto">
+              <div className="space-y-2">
                 {mainOffer.features.map((feature, index) => (
-                  <div key={index} className="flex items-center gap-2">
-                    <Check className="w-5 h-5 text-primary flex-shrink-0" />
-                    <span className="text-white text-sm">{feature}</span>
+                  <div key={index} className="flex items-center gap-3">
+                    <Check className="w-4 h-4 text-primary flex-shrink-0" />
+                    <span className="text-white/90 text-xs uppercase tracking-wide">{feature}</span>
                   </div>
                 ))}
               </div>
-              <div className="space-y-3">
+              <div className="space-y-2">
                 {mainOffer.features2.map((feature, index) => (
-                  <div key={index} className="flex items-center gap-2">
-                    <Check className="w-5 h-5 text-primary flex-shrink-0" />
-                    <span className="text-white text-sm">{feature}</span>
+                  <div key={index} className="flex items-center gap-3">
+                    <Check className="w-4 h-4 text-primary flex-shrink-0" />
+                    <span className="text-white/90 text-xs uppercase tracking-wide">{feature}</span>
                   </div>
                 ))}
               </div>
             </div>
 
-            {/* Price */}
+            {/* Divider */}
             <div className="text-center mb-6">
-              <p className="text-white/80 text-sm mb-2">A PARTIR DE</p>
-              <div className="text-5xl md:text-6xl font-bold text-primary mb-2">
-                R$ {mainOffer.price}<span className="text-3xl">,00</span>
+              <p className="text-white/60 text-xs uppercase tracking-widest">A PARTIR DE</p>
+            </div>
+
+            {/* Price */}
+            <div className="text-center mb-8">
+              <div className="text-6xl md:text-7xl font-bold text-primary mb-1">
+                R$ {mainOffer.price}<span className="text-4xl">,00</span>
               </div>
-              <p className="text-white/80 text-sm">EM 3X SEM JUROS NO CARTÃO</p>
             </div>
 
             {/* CTA Button */}
             <div className="text-center">
               <Button
                 size="lg"
-                className="bg-primary hover:bg-primary/90 text-white font-bold text-lg px-12 py-6 rounded-full animate-pulse hover:animate-none"
+                className="bg-primary hover:bg-primary/90 text-white font-bold text-sm uppercase tracking-wider px-16 py-6 rounded-full"
                 onClick={() => window.open('https://wa.me/5519993937708?text=oL%C3%81%2C%20MARKETING%20DIGITAL%2C%20ESTOU%20COM%20D%C3%9AVIDAS%20PODE%20ME%20AJUDAR%20%3F', '_blank')}
               >
                 {mainOffer.cta}
@@ -151,42 +161,42 @@ const PricingSection = () => {
           {plans.map((plan, index) => (
             <div
               key={index}
-              className={`rounded-2xl p-6 border-2 ${
+              className={`rounded-xl p-6 border-2 ${
                 plan.highlight
-                  ? "border-primary bg-primary text-white scale-105"
-                  : "border-border bg-card/30 backdrop-blur-sm"
-              } transition-transform hover:scale-105`}
+                  ? "border-primary bg-primary text-white"
+                  : "border-border/30 bg-background/30 backdrop-blur-sm"
+              } transition-all hover:scale-105`}
             >
               {/* Plan Name */}
-              <h3 className={`text-2xl font-bold text-center mb-4 ${
-                plan.highlight ? "text-white" : "text-primary"
+              <h3 className={`text-xl font-bold text-center mb-4 uppercase tracking-wide ${
+                plan.highlight ? "text-white" : "text-white"
               }`}>
                 {plan.name}
               </h3>
 
               {/* Price */}
               <div className="text-center mb-6">
-                <div className={`text-4xl font-bold mb-2 ${
+                <div className={`text-3xl font-bold mb-1 ${
                   plan.highlight ? "text-white" : "text-primary"
                 }`}>
-                  R$ {plan.price}<span className="text-2xl">,00</span>
+                  R$ {plan.price}<span className="text-xl">,00</span>
                 </div>
-                <p className={`text-sm ${
-                  plan.highlight ? "text-white/90" : "text-muted-foreground"
+                <p className={`text-xs ${
+                  plan.highlight ? "text-white/80" : "text-white/60"
                 }`}>
                   EM 3X SEM JUROS NO CARTÃO
                 </p>
               </div>
 
               {/* Features */}
-              <div className="space-y-3 mb-6">
+              <div className="space-y-2 mb-6 min-h-[300px]">
                 {plan.features.map((feature, idx) => (
                   <div key={idx} className="flex items-start gap-2">
-                    <Check className={`w-4 h-4 flex-shrink-0 mt-0.5 ${
+                    <Check className={`w-3 h-3 flex-shrink-0 mt-1 ${
                       plan.highlight ? "text-white" : "text-primary"
                     }`} />
-                    <span className={`text-sm ${
-                      plan.highlight ? "text-white" : "text-foreground"
+                    <span className={`text-xs ${
+                      plan.highlight ? "text-white/90" : "text-white/80"
                     }`}>
                       {feature}
                     </span>
@@ -196,7 +206,7 @@ const PricingSection = () => {
 
               {/* CTA Button */}
               <Button
-                className={`w-full ${
+                className={`w-full rounded-full font-bold text-xs uppercase tracking-wide ${
                   plan.highlight
                     ? "bg-white text-primary hover:bg-white/90"
                     : "bg-primary text-white hover:bg-primary/90"
