@@ -1,5 +1,6 @@
 import Hero from "@/components/Hero";
 import PromoCard from "@/components/PromoCard";
+import PromoBadges from "@/components/PromoBadges";
 import CTABanner from "@/components/CTABanner";
 import Services from "@/components/Services";
 import Process from "@/components/Process";
@@ -17,6 +18,7 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Hero />
       <PromoCard />
+      <PromoBadges />
       <ScrollReveal>
         <CTABanner />
       </ScrollReveal>

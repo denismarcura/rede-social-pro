@@ -125,7 +125,7 @@ const CTABanner = () => {
             <Button 
               variant="hero"
               size="lg" 
-              className="font-bold text-xl px-12 py-6 rounded-full shadow-2xl hover:shadow-glow hover:scale-105 transition-all duration-300"
+              className="font-bold text-xl px-12 py-6 rounded-full shadow-2xl hover:shadow-glow hover:scale-105 transition-all duration-300 animate-pulse hover:animate-none"
               onClick={() => window.open('https://wa.me/5519993937708?text=oL%C3%81%2C%20MARKETING%20DIGITAL%2C%20ESTOU%20COM%20D%C3%9AVIDAS%20PODE%20ME%20AJUDAR%20%3F', '_blank')}
             >
               QUERO APROVEITAR ESTA OFERTA!
