@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import { Separator } from "@/components/ui/separator";
+import { Button } from "@/components/ui/button";
+import { Download } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -40,6 +42,15 @@ const Footer = () => {
               >
                 Termos e Condições
               </Link>
+              <Button 
+                variant="outline" 
+                size="sm"
+                className="mt-4 w-full"
+                onClick={() => window.open('https://drive.google.com/file/d/1ZfzEJGOHcJNzM7CEYRBzSbZOkAw7ygyT/view?usp=sharing', '_blank')}
+              >
+                <Download className="w-4 h-4 mr-2" />
+                BAIXAR FOLDER
+              </Button>
             </div>
           </div>
         </div>
