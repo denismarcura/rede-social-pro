@@ -88,7 +88,7 @@ const CTABanner = () => {
               <span className="text-xl font-bold text-primary">BÔNUS EXCLUSIVO</span>
             </div>
             <p className="text-lg md:text-xl text-foreground">
-              GANHE UMA CAMPANHA COMPLETA DE MARKETING DIGITAL
+              2 MESES DE CAMPANHA, E AINDA GANHE UM WEBSITE OU UMA LANDING PAGE
             </p>
           </div>
 
