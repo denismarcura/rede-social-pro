@@ -1,4 +1,4 @@
-import { CreditCard, X, Percent } from "lucide-react";
+import { CreditCard, X, Percent, Gift } from "lucide-react";
 
 const PromoBadges = () => {
   const badges = [
@@ -31,6 +31,26 @@ const PromoBadges = () => {
   return (
     <section className="py-8 bg-background">
       <div className="container mx-auto px-4">
+        {/* Promo Banner */}
+        <div className="max-w-4xl mx-auto mb-8">
+          <div className="bg-gradient-to-r from-primary via-primary/90 to-primary rounded-2xl p-6 md:p-8 text-center shadow-lg animate-fade-in">
+            <div className="flex items-center justify-center gap-3 mb-3">
+              <Gift className="w-8 h-8 text-primary-foreground animate-pulse" />
+              <h3 className="text-2xl md:text-3xl font-bold text-primary-foreground uppercase">
+                Ganhe uma Landing Page ou Website
+              </h3>
+              <Gift className="w-8 h-8 text-primary-foreground animate-pulse" />
+            </div>
+            <p className="text-lg md:text-xl text-primary-foreground/90 font-medium">
+              Fechando nosso <span className="font-bold underline">Plano Ouro</span> - São dois meses de postagens
+            </p>
+            <p className="text-primary-foreground/80 mt-2">
+              Pague em até <span className="font-bold text-primary-foreground">3x sem juros</span> no cartão
+            </p>
+          </div>
+        </div>
+
+        {/* Badges */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl mx-auto">
           {badges.map((badge, index) => (
             <div
