@@ -1,6 +1,7 @@
 import Hero from "@/components/Hero";
 
 import PricingSection from "@/components/PricingSection";
+import TrafficCTA from "@/components/TrafficCTA";
 import WhatsAppTestimonials from "@/components/WhatsAppTestimonials";
 import ClientTestimonials from "@/components/ClientTestimonials";
 
@@ -24,6 +25,7 @@ const Index = () => {
       
       <PricingSection />
       <PromoBadges />
+      <TrafficCTA />
       <WhatsAppTestimonials />
       <ClientTestimonials />
       <ScrollReveal>
