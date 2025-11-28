@@ -12,7 +12,11 @@ const Portfolio = () => {
     { name: "Inova Logos", url: "https://inovalogos.com.br/" },
     { name: "Miano Frezzarin", url: "https://mianofrezzarin.com.br/" },
     { name: "Gold Brasil Polímeros", url: "https://goldbrasilpolimeros.com.br/" },
-    { name: "Mídia Foco Digital", url: "https://rede-social-pro-kit.lovable.app/" }
+    { name: "Mídia Foco Digital", url: "https://rede-social-pro-kit.lovable.app/" },
+    { name: "Osmium Engenharia", url: "https://osmiumengenharia.com.br/" },
+    { name: "Orçamento Loja Virtual", url: "https://loja-virtual-orcamento.lovable.app/" },
+    { name: "Orçamento Geart", url: "https://geart-digital-boost.lovable.app/" },
+    { name: "Ecologica Ambiental", url: "https://green-lead-gen.lovable.app/" }
   ];
 
   const instagramClients = [
