@@ -1,5 +1,8 @@
 import { Button } from "@/components/ui/button";
-import { Check } from "lucide-react";
+import { Check, Clock } from "lucide-react";
+import PromoCountdown from "./PromoCountdown";
+
+const PLANO_PRATA_WHATSAPP = 'https://api.whatsapp.com/send?phone=5519993937708&text=Ol%C3%A1%20gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20o%20plano%20prata%20de%20R%24%20199%2C00%20mensais';
 
 const PricingSection = () => {
   const mainOffer = {
@@ -28,7 +31,9 @@ const PricingSection = () => {
   const plans = [
     {
       name: "Plano Prata",
-      price: "299",
+      price: "199",
+      originalPrice: "299",
+      isPromo: true,
       features: [
         "30 Criativos profissionais",
         "30 Postagens",
@@ -157,15 +162,27 @@ const PricingSection = () => {
 
         {/* Three Plans */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-7xl mx-auto">
-          {plans.map((plan, index) => (
+        {plans.map((plan, index) => (
             <div
               key={index}
-              className={`rounded-xl p-6 border-2 ${
-                plan.highlight
+              className={`rounded-xl p-6 border-2 relative ${
+                plan.isPromo
+                  ? "border-red-500 bg-gradient-to-br from-red-500/20 to-red-900/20 backdrop-blur-sm ring-2 ring-red-500 ring-offset-2 ring-offset-background"
+                  : plan.highlight
                   ? "border-primary bg-primary text-white"
                   : "border-border/30 bg-background/30 backdrop-blur-sm"
               } transition-all hover:scale-105`}
             >
+              {/* Promo Badge */}
+              {plan.isPromo && (
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+                  <div className="bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full flex items-center gap-1 animate-pulse">
+                    <Clock className="w-3 h-3" />
+                    OFERTA LIMITADA!
+                  </div>
+                </div>
+              )}
+
               {/* Plan Name */}
               <h3 className={`text-xl font-bold text-center mb-4 uppercase tracking-wide ${
                 plan.highlight ? "text-white" : "text-white"
@@ -174,9 +191,15 @@ const PricingSection = () => {
               </h3>
 
               {/* Price */}
-              <div className="text-center mb-6">
+              <div className="text-center mb-4">
+                {plan.isPromo && plan.originalPrice && (
+                  <div className="flex items-center justify-center gap-2 mb-1">
+                    <span className="text-lg text-white/50 line-through">R$ {plan.originalPrice},00</span>
+                    <span className="bg-red-500 text-white text-[10px] font-bold px-2 py-0.5 rounded">-33%</span>
+                  </div>
+                )}
                 <div className={`text-3xl font-bold mb-1 ${
-                  plan.highlight ? "text-white" : "text-primary"
+                  plan.isPromo ? "text-red-500" : plan.highlight ? "text-white" : "text-primary"
                 }`}>
                   R$ {plan.price}<span className="text-xl">,00</span>
                 </div>
@@ -187,12 +210,19 @@ const PricingSection = () => {
                 </p>
               </div>
 
+              {/* Countdown for Promo */}
+              {plan.isPromo && (
+                <div className="mb-4">
+                  <PromoCountdown variant="large" />
+                </div>
+              )}
+
               {/* Features */}
-              <div className="space-y-2 mb-6 min-h-[300px]">
+              <div className="space-y-2 mb-6 min-h-[280px]">
                 {plan.features.map((feature, idx) => (
                   <div key={idx} className="flex items-start gap-2">
                     <Check className={`w-3 h-3 flex-shrink-0 mt-1 ${
-                      plan.highlight ? "text-white" : "text-primary"
+                      plan.isPromo ? "text-red-500" : plan.highlight ? "text-white" : "text-primary"
                     }`} />
                     <span className={`text-xs ${
                       plan.highlight ? "text-white/90" : "text-white/80"
@@ -206,13 +236,15 @@ const PricingSection = () => {
               {/* CTA Button */}
               <Button
                 className={`w-full rounded-full font-bold text-xs uppercase tracking-wide ${
-                  plan.highlight
+                  plan.isPromo
+                    ? "bg-red-500 text-white hover:bg-red-600"
+                    : plan.highlight
                     ? "bg-white text-primary hover:bg-white/90"
                     : "bg-primary text-white hover:bg-primary/90"
                 }`}
-                onClick={() => window.open('https://wa.me/5519993937708?text=oL%C3%81%2C%20MARKETING%20DIGITAL%2C%20ESTOU%20COM%20D%C3%9AVIDAS%20PODE%20ME%20AJUDAR%20%3F', '_blank')}
+                onClick={() => window.open(plan.isPromo ? PLANO_PRATA_WHATSAPP : 'https://wa.me/5519993937708?text=oL%C3%81%2C%20MARKETING%20DIGITAL%2C%20ESTOU%20COM%20D%C3%9AVIDAS%20PODE%20ME%20AJUDAR%20%3F', '_blank')}
               >
-                Solicitar Orçamento
+                {plan.isPromo ? 'APROVEITAR AGORA!' : 'Solicitar Orçamento'}
               </Button>
             </div>
           ))}

@@ -2,12 +2,17 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Check, Star, CreditCard, DollarSign, Smartphone, Users, TrendingUp, Clock, X, Percent } from "lucide-react";
+import PromoCountdown from "./PromoCountdown";
+
+const PLANO_PRATA_WHATSAPP = 'https://api.whatsapp.com/send?phone=5519993937708&text=Ol%C3%A1%20gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20o%20plano%20prata%20de%20R%24%20199%2C00%20mensais';
 
 const Pricing = () => {
   const plans = [
     {
       name: "Plano Prata",
-      price: "R$ 299",
+      price: "R$ 199",
+      originalPrice: "R$ 299",
+      isPromo: true,
       period: "/mês",
       description: "Perfeito para empresas que querem crescer com qualidade no marketing digital",
       popular: false,
@@ -235,12 +240,22 @@ const Pricing = () => {
             <Card 
               key={index} 
               className={`relative border-0 shadow-card hover:shadow-glow transition-all duration-300 ${
-                plan.popular 
+                plan.isPromo 
+                  ? 'bg-gradient-to-br from-red-500/20 to-red-900/30 ring-2 ring-red-500 ring-offset-2 ring-offset-background transform scale-105'
+                  : plan.popular 
                   ? 'bg-gradient-primary transform scale-105' 
                   : 'bg-gradient-card'
               }`}
             >
-              {plan.popular && (
+              {plan.isPromo && (
+                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                  <Badge className="bg-red-500 text-white px-4 py-1 font-semibold animate-pulse">
+                    <Clock className="w-3 h-3 mr-1" />
+                    OFERTA LIMITADA!
+                  </Badge>
+                </div>
+              )}
+              {plan.popular && !plan.isPromo && (
                 <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
                   <Badge className="bg-primary-glow text-background px-4 py-1 font-semibold">
                     <Star className="w-3 h-3 mr-1" />
@@ -250,11 +265,17 @@ const Pricing = () => {
               )}
               
               <CardHeader className="text-center pb-4">
-                <CardTitle className={`text-2xl ${plan.popular ? 'text-primary-foreground' : ''}`}>
+                <CardTitle className={`text-2xl ${plan.isPromo ? 'text-red-500' : plan.popular ? 'text-primary-foreground' : ''}`}>
                   {plan.name}
                 </CardTitle>
                 <div className="mt-4">
-                  <span className={`text-4xl font-bold ${plan.popular ? 'text-primary-foreground' : 'text-primary'}`}>
+                  {plan.isPromo && plan.originalPrice && (
+                    <div className="flex items-center justify-center gap-2 mb-1">
+                      <span className="text-lg text-muted-foreground line-through">{plan.originalPrice}</span>
+                      <span className="bg-red-500 text-white text-xs font-bold px-2 py-0.5 rounded">-33%</span>
+                    </div>
+                  )}
+                  <span className={`text-4xl font-bold ${plan.isPromo ? 'text-red-500' : plan.popular ? 'text-primary-foreground' : 'text-primary'}`}>
                     {plan.price}
                   </span>
                   <span className={`text-lg ${plan.popular ? 'text-primary-foreground/80' : 'text-muted-foreground'}`}>
@@ -264,13 +285,18 @@ const Pricing = () => {
                 <CardDescription className={plan.popular ? 'text-primary-foreground/80' : ''}>
                   {plan.description}
                 </CardDescription>
+                {plan.isPromo && (
+                  <div className="mt-4">
+                    <PromoCountdown variant="large" />
+                  </div>
+                )}
               </CardHeader>
               
               <CardContent className="space-y-4">
                 <ul className="space-y-3">
                   {plan.features.map((feature, idx) => (
                     <li key={idx} className={`flex items-start gap-3 ${plan.popular ? 'text-primary-foreground' : ''}`}>
-                      <Check className={`w-5 h-5 mt-0.5 flex-shrink-0 ${plan.popular ? 'text-primary-foreground' : 'text-primary'}`} />
+                      <Check className={`w-5 h-5 mt-0.5 flex-shrink-0 ${plan.isPromo ? 'text-red-500' : plan.popular ? 'text-primary-foreground' : 'text-primary'}`} />
                       <span className="text-sm">{feature}</span>
                     </li>
                   ))}
@@ -279,14 +305,16 @@ const Pricing = () => {
                 <Button 
                   variant={plan.popular ? "outline" : "default"} 
                   className={`w-full mt-6 ${
-                    plan.popular 
+                    plan.isPromo
+                      ? 'bg-red-500 hover:bg-red-600 text-white'
+                      : plan.popular 
                       ? 'border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary' 
                       : ''
                   }`}
                   size="lg"
-                  onClick={() => window.open('https://wa.me/5519993937708?text=oL%C3%81%2C%20MARKETING%20DIGITAL%2C%20ESTOU%20COM%20D%C3%9AVIDAS%20PODE%20ME%20AJUDAR%20%3F', '_blank')}
+                  onClick={() => window.open(plan.isPromo ? PLANO_PRATA_WHATSAPP : 'https://wa.me/5519993937708?text=oL%C3%81%2C%20MARKETING%20DIGITAL%2C%20ESTOU%20COM%20D%C3%9AVIDAS%20PODE%20ME%20AJUDAR%20%3F', '_blank')}
                 >
-                  Escolher {plan.name}
+                  {plan.isPromo ? 'APROVEITAR AGORA!' : `Escolher ${plan.name}`}
                 </Button>
               </CardContent>
             </Card>
