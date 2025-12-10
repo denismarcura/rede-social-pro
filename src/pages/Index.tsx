@@ -12,7 +12,6 @@ import Process from "@/components/Process";
 import Portfolio from "@/components/Portfolio";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
 import Pricing from "@/components/Pricing";
-import Testimonials from "@/components/Testimonials";
 import FAQ from "@/components/FAQ";
 import Contact from "@/components/Contact";
 import ScrollReveal from "@/components/ScrollReveal";
@@ -44,9 +43,6 @@ const Index = () => {
       </ScrollReveal>
       <ScrollReveal delay={0.1}>
         <Pricing />
-      </ScrollReveal>
-      <ScrollReveal delay={0.1}>
-        <Testimonials />
       </ScrollReveal>
       <ScrollReveal delay={0.1}>
         <FAQ />
