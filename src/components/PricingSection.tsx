@@ -35,15 +35,18 @@ const PricingSection = () => {
       originalPrice: "299",
       isPromo: true,
       features: [
-        "30 Criativos profissionais",
-        "30 Postagens",
-        "5 Vídeos Reels",
-        "30 Textos com SEO",
-        "5 Stories mensais",
+        "20 Criativos profissionais",
+        "20 Textos com SEO",
+        "20 Postagens estratégicas",
+        "10 Stories envolventes",
+        "05 Vídeos Reels",
         "Tráfego pago (Facebook/Instagram)",
         "Bio profissional",
+        "LinkBio Instagram",
+        "Checklist digital personalizado",
+        "Atendimento VIP WhatsApp",
         "Relatório mensal",
-        "Atendimento via WhatsApp"
+        "2x sem juros no cartão"
       ],
       highlight: false
     },
