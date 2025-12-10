@@ -17,10 +17,12 @@ import FAQ from "@/components/FAQ";
 import Contact from "@/components/Contact";
 import ScrollReveal from "@/components/ScrollReveal";
 import Footer from "@/components/Footer";
+import PromoPopup from "@/components/PromoPopup";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
+      <PromoPopup />
       <Hero />
       <VideoSection />
       <PricingSection />
