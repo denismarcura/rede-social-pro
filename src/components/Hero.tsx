@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-image.jpg";
 import { useCounterAnimation } from "@/hooks/use-counter-animation";
+import { Download } from "lucide-react";
 
 const Hero = () => {
   const counter1 = useCounterAnimation(500);
@@ -57,6 +58,17 @@ const Hero = () => {
               Ver Nossos Serviços
             </Button>
           </div>
+          
+          {/* Botão Download Folder */}
+          <Button 
+            variant="outline" 
+            size="lg" 
+            className="w-full sm:w-auto text-lg px-8 py-4 border-primary/50 hover:border-primary"
+            onClick={() => window.open('https://drive.google.com/file/d/1ZfzEJGOHcJNzM7CEYRBzSbZOkAw7ygyT/view?usp=sharing', '_blank')}
+          >
+            <Download className="mr-2 h-5 w-5" />
+            BAIXAR NOSSO FOLDER PROFISSIONAL
+          </Button>
           
           <div className="grid grid-cols-3 gap-8 pt-8">
             <div className="text-center" ref={counter1.ref}>
