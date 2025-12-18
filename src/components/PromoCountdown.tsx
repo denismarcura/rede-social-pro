@@ -1,7 +1,7 @@
 import { useCountdown } from '@/hooks/use-countdown';
 import { Clock } from 'lucide-react';
 
-const PROMO_END_DATE = new Date('2025-12-20T23:59:59');
+const PROMO_END_DATE = new Date('2025-12-22T23:59:59');
 
 interface PromoCountdownProps {
   variant?: 'small' | 'large';
