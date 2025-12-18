@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Check, Clock } from "lucide-react";
 import PromoCountdown from "./PromoCountdown";
-import ChristmasLights from "./ChristmasLights";
 
 const PLANO_PRATA_WHATSAPP = 'https://api.whatsapp.com/send?phone=5519993937708&text=Ol%C3%A1%20gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20o%20plano%20prata%20de%20R%24%20199%2C00%20mensais';
 
@@ -96,9 +95,6 @@ const PricingSection = () => {
 
   return (
     <section className="py-16 bg-gradient-dark relative overflow-hidden">
-      {/* Christmas Lights */}
-      <ChristmasLights />
-      
       {/* Background pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,hsl(24_95%_53%)_1px,transparent_0)] bg-[size:50px_50px]" />
@@ -180,13 +176,24 @@ const PricingSection = () => {
                   : "border-border/30 bg-background/30 backdrop-blur-sm"
               } transition-all hover:scale-105`}
             >
-              {/* Promo Badge with Santa Hat */}
+              {/* Santa Hat for Promo */}
               {plan.isPromo && (
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                  <div className="bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full flex items-center gap-1 animate-pulse">
-                    🎅 PROMOÇÃO DE NATAL!
+                <>
+                  {/* Santa Hat */}
+                  <div className="absolute -top-8 -left-3 z-20">
+                    <svg width="60" height="50" viewBox="0 0 100 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <ellipse cx="50" cy="72" rx="45" ry="10" fill="#FFFFFF"/>
+                      <path d="M10 70 Q15 30 50 15 Q85 30 90 70" fill="#DC2626"/>
+                      <circle cx="75" cy="20" r="12" fill="#FFFFFF"/>
+                      <path d="M50 15 Q60 10 75 20" stroke="#DC2626" strokeWidth="8" fill="none"/>
+                    </svg>
                   </div>
-                </div>
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+                    <div className="bg-gradient-to-r from-red-600 to-red-500 text-white text-[10px] font-bold px-3 py-1 rounded-full flex items-center gap-1 shadow-lg">
+                      🎄 PROMOÇÃO DE NATAL!
+                    </div>
+                  </div>
+                </>
               )}
 
               {/* Plan Name */}

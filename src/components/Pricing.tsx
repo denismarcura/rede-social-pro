@@ -3,7 +3,6 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Check, Star, CreditCard, DollarSign, Smartphone, Users, TrendingUp, Clock, X, Percent } from "lucide-react";
 import PromoCountdown from "./PromoCountdown";
-import ChristmasLights from "./ChristmasLights";
 
 const PLANO_PRATA_WHATSAPP = 'https://api.whatsapp.com/send?phone=5519993937708&text=Ol%C3%A1%20gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20o%20plano%20prata%20de%20R%24%20199%2C00%20mensais';
 
@@ -95,9 +94,6 @@ const Pricing = () => {
 
   return (
     <section className="py-20 bg-background relative overflow-hidden">
-      {/* Christmas Lights */}
-      <ChristmasLights />
-      
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <Badge variant="secondary" className="mb-4">Planos e Investimento</Badge>
@@ -252,11 +248,22 @@ const Pricing = () => {
               }`}
             >
               {plan.isPromo && (
-                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                  <Badge className="bg-red-500 text-white px-4 py-1 font-semibold animate-pulse">
-                    🎅 PROMOÇÃO DE NATAL!
-                  </Badge>
-                </div>
+                <>
+                  {/* Santa Hat */}
+                  <div className="absolute -top-10 -left-4 z-20">
+                    <svg width="65" height="55" viewBox="0 0 100 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <ellipse cx="50" cy="72" rx="45" ry="10" fill="#FFFFFF"/>
+                      <path d="M10 70 Q15 30 50 15 Q85 30 90 70" fill="#DC2626"/>
+                      <circle cx="75" cy="20" r="12" fill="#FFFFFF"/>
+                      <path d="M50 15 Q60 10 75 20" stroke="#DC2626" strokeWidth="8" fill="none"/>
+                    </svg>
+                  </div>
+                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                    <Badge className="bg-gradient-to-r from-red-600 to-red-500 text-white px-4 py-1 font-semibold shadow-lg">
+                      🎄 PROMOÇÃO DE NATAL!
+                    </Badge>
+                  </div>
+                </>
               )}
               {plan.popular && !plan.isPromo && (
                 <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
