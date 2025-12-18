@@ -8,15 +8,7 @@ const Hero = () => {
   const counter3 = useCounterAnimation(30);
 
   return (
-    <>
-      {/* Top Banner */}
-      <div className="bg-gradient-primary py-3 text-center">
-        <p className="text-primary-foreground font-semibold">
-          📋 Nome do cliente, segue seu orçamento
-        </p>
-      </div>
-      
-      <section className="relative py-20 bg-gradient-dark flex items-center overflow-hidden">
+    <section className="relative py-20 bg-gradient-dark flex items-center overflow-hidden">
         {/* Background image with transparency */}
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-10"
@@ -93,7 +85,6 @@ const Hero = () => {
         </div>
       </div>
     </section>
-    </>
   );
 };
 
