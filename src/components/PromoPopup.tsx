@@ -3,7 +3,7 @@ import { X, Clock, MessageCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useCountdown } from '@/hooks/use-countdown';
 
-const PROMO_END_DATE = new Date('2025-12-20T23:59:59');
+const PROMO_END_DATE = new Date('2025-12-22T23:59:59');
 const WHATSAPP_LINK = 'https://api.whatsapp.com/send?phone=5519993937708&text=Ol%C3%A1%20gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20o%20plano%20prata%20de%20R%24%20199%2C00%20mensais';
 
 const PromoPopup = () => {
@@ -102,7 +102,7 @@ const PromoPopup = () => {
           </Button>
 
           <p className="text-center text-white/50 text-xs mt-4">
-            * Válido até 20/12/2025
+            * Válido até 22/12/2025
           </p>
         </div>
       </div>
