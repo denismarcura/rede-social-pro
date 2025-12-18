@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Check, Clock } from "lucide-react";
 import PromoCountdown from "./PromoCountdown";
+import ChristmasLights from "./ChristmasLights";
 
 const PLANO_PRATA_WHATSAPP = 'https://api.whatsapp.com/send?phone=5519993937708&text=Ol%C3%A1%20gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20o%20plano%20prata%20de%20R%24%20199%2C00%20mensais';
 
@@ -95,6 +96,9 @@ const PricingSection = () => {
 
   return (
     <section className="py-16 bg-gradient-dark relative overflow-hidden">
+      {/* Christmas Lights */}
+      <ChristmasLights />
+      
       {/* Background pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,hsl(24_95%_53%)_1px,transparent_0)] bg-[size:50px_50px]" />
@@ -176,12 +180,11 @@ const PricingSection = () => {
                   : "border-border/30 bg-background/30 backdrop-blur-sm"
               } transition-all hover:scale-105`}
             >
-              {/* Promo Badge */}
+              {/* Promo Badge with Santa Hat */}
               {plan.isPromo && (
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2">
                   <div className="bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full flex items-center gap-1 animate-pulse">
-                    <Clock className="w-3 h-3" />
-                    OFERTA LIMITADA!
+                    🎅 PROMOÇÃO DE NATAL!
                   </div>
                 </div>
               )}
