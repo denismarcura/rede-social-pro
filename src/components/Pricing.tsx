@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Check, Star, CreditCard, DollarSign, Smartphone, Users, TrendingUp, Clock, X, Percent } from "lucide-react";
 import PromoCountdown from "./PromoCountdown";
+import ChristmasLights from "./ChristmasLights";
 
 const PLANO_PRATA_WHATSAPP = 'https://api.whatsapp.com/send?phone=5519993937708&text=Ol%C3%A1%20gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20o%20plano%20prata%20de%20R%24%20199%2C00%20mensais';
 
@@ -93,7 +94,10 @@ const Pricing = () => {
   ];
 
   return (
-    <section className="py-20 bg-background">
+    <section className="py-20 bg-background relative overflow-hidden">
+      {/* Christmas Lights */}
+      <ChristmasLights />
+      
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <Badge variant="secondary" className="mb-4">Planos e Investimento</Badge>
@@ -250,8 +254,7 @@ const Pricing = () => {
               {plan.isPromo && (
                 <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
                   <Badge className="bg-red-500 text-white px-4 py-1 font-semibold animate-pulse">
-                    <Clock className="w-3 h-3 mr-1" />
-                    OFERTA LIMITADA!
+                    🎅 PROMOÇÃO DE NATAL!
                   </Badge>
                 </div>
               )}
