@@ -1,5 +1,4 @@
 import Hero from "@/components/Hero";
-import VideoSection from "@/components/VideoSection";
 import PricingSection from "@/components/PricingSection";
 import TrafficCTA from "@/components/TrafficCTA";
 import WhatsAppTestimonials from "@/components/WhatsAppTestimonials";
@@ -23,7 +22,6 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <PromoPopup />
       <Hero />
-      <VideoSection />
       <PricingSection />
       <PromoBadges />
       <TrafficCTA />
