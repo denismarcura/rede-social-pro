@@ -63,7 +63,7 @@ const Hero = () => {
           <Button 
             variant="outline" 
             size="lg" 
-            className="w-full sm:w-auto text-lg px-8 py-4 border-primary/50 hover:border-primary"
+            className="w-full sm:w-auto text-lg px-8 py-4 border-primary/50 hover:border-primary animate-pulse hover:animate-none"
             onClick={() => window.open('https://drive.google.com/file/d/1ZfzEJGOHcJNzM7CEYRBzSbZOkAw7ygyT/view?usp=sharing', '_blank')}
           >
             <Download className="mr-2 h-5 w-5" />
