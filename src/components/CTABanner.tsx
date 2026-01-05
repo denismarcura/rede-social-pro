@@ -97,8 +97,11 @@ const CTABanner = () => {
           {/* Countdown Timer */}
           <div className="mb-8">
             <div className="flex items-center justify-center gap-2 mb-4">
-              <Clock className="w-6 h-6 text-primary" />
-              <span className="text-lg font-semibold">PROMOÇÃO ATÉ DIA 10 DE JANEIRO:</span>
+              <Clock className="w-6 h-6 text-primary animate-pulse" />
+              <span className="text-lg font-semibold">PROMOÇÃO ATÉ DIA</span>
+              <span className="text-xl font-bold text-primary bg-primary/20 px-3 py-1 rounded-full animate-pulse border border-primary/40 shadow-glow">
+                10 DE JANEIRO
+              </span>
             </div>
             <div className="flex justify-center gap-3 md:gap-4">
               <div className="bg-card/80 rounded-lg p-3 md:p-4 min-w-[70px] md:min-w-[80px] backdrop-blur-sm border border-primary/20">
@@ -159,7 +162,7 @@ const CTABanner = () => {
           </div>
 
           <p className="text-sm mt-4 opacity-90">
-            ⚡ Promoção válida até 10 de janeiro de 2026 • Não perca esta oportunidade!
+            ⚡ Promoção válida até <span className="font-bold text-primary animate-pulse">10 de janeiro de 2026</span> • Não perca esta oportunidade!
           </p>
         </div>
       </div>
