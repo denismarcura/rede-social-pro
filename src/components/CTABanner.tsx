@@ -12,7 +12,7 @@ const CTABanner = () => {
 
   useEffect(() => {
     const calculateTimeLeft = () => {
-      const promoEndDate = new Date('2025-12-12T23:59:59');
+      const promoEndDate = new Date('2026-01-10T23:59:59');
       const now = new Date();
       const difference = promoEndDate.getTime() - now.getTime();
 
@@ -98,7 +98,7 @@ const CTABanner = () => {
           <div className="mb-8">
             <div className="flex items-center justify-center gap-2 mb-4">
               <Clock className="w-6 h-6 text-primary" />
-              <span className="text-lg font-semibold">PROMOÇÃO ATÉ DIA 12 DE DEZEMBRO DE 2025:</span>
+              <span className="text-lg font-semibold">PROMOÇÃO ATÉ DIA 10 DE JANEIRO:</span>
             </div>
             <div className="flex justify-center gap-3 md:gap-4">
               <div className="bg-card/80 rounded-lg p-3 md:p-4 min-w-[70px] md:min-w-[80px] backdrop-blur-sm border border-primary/20">
@@ -159,7 +159,7 @@ const CTABanner = () => {
           </div>
 
           <p className="text-sm mt-4 opacity-90">
-            ⚡ Promoção válida até 12 de dezembro de 2025 • Não perca esta oportunidade!
+            ⚡ Promoção válida até 10 de janeiro de 2026 • Não perca esta oportunidade!
           </p>
         </div>
       </div>
