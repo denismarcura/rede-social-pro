@@ -187,13 +187,54 @@ const visibleMask = `repeating-linear-gradient(to right, rgba(0,0,0,0) 0px, rgba
 function ThreeDPhotoCarousel() {
   const [activeImg, setActiveImg] = useState<string | null>(null)
   const [isCarouselActive, setIsCarouselActive] = useState(true)
+  const [isAutoplayPaused, setIsAutoplayPaused] = useState(false)
   const controls = useAnimation()
   const cards = useMemo(() => portfolioImages, [])
   const rotationRef = useRef<MotionValue<number> | null>(null)
+  const autoplayRef = useRef<NodeJS.Timeout | null>(null)
+  const pauseTimeoutRef = useRef<NodeJS.Timeout | null>(null)
 
   useEffect(() => {
     console.log("Cards loaded:", cards)
   }, [cards])
+
+  // Autoplay logic
+  useEffect(() => {
+    if (!isCarouselActive || isAutoplayPaused) {
+      if (autoplayRef.current) {
+        clearInterval(autoplayRef.current)
+        autoplayRef.current = null
+      }
+      return
+    }
+
+    autoplayRef.current = setInterval(() => {
+      if (rotationRef.current) {
+        const currentRotation = rotationRef.current.get()
+        rotationRef.current.set(currentRotation - 0.3)
+      }
+    }, 50)
+
+    return () => {
+      if (autoplayRef.current) {
+        clearInterval(autoplayRef.current)
+      }
+    }
+  }, [isCarouselActive, isAutoplayPaused])
+
+  const pauseAutoplay = useCallback(() => {
+    setIsAutoplayPaused(true)
+    
+    // Clear any existing resume timeout
+    if (pauseTimeoutRef.current) {
+      clearTimeout(pauseTimeoutRef.current)
+    }
+    
+    // Resume autoplay after 3 seconds of inactivity
+    pauseTimeoutRef.current = setTimeout(() => {
+      setIsAutoplayPaused(false)
+    }, 3000)
+  }, [])
 
   const handleClick = (imgUrl: string) => {
     setActiveImg(imgUrl)
@@ -212,19 +253,25 @@ function ThreeDPhotoCarousel() {
 
   const handlePrev = useCallback(() => {
     if (rotationRef.current && isCarouselActive) {
+      pauseAutoplay()
       const currentRotation = rotationRef.current.get()
       const anglePerCard = 360 / cards.length
       rotationRef.current.set(currentRotation + anglePerCard)
     }
-  }, [cards.length, isCarouselActive])
+  }, [cards.length, isCarouselActive, pauseAutoplay])
 
   const handleNext = useCallback(() => {
     if (rotationRef.current && isCarouselActive) {
+      pauseAutoplay()
       const currentRotation = rotationRef.current.get()
       const anglePerCard = 360 / cards.length
       rotationRef.current.set(currentRotation - anglePerCard)
     }
-  }, [cards.length, isCarouselActive])
+  }, [cards.length, isCarouselActive, pauseAutoplay])
+
+  const handleCarouselInteraction = useCallback(() => {
+    pauseAutoplay()
+  }, [pauseAutoplay])
 
   return (
     <motion.div layout className="relative">
@@ -259,7 +306,11 @@ function ThreeDPhotoCarousel() {
           </motion.div>
         )}
       </AnimatePresence>
-      <div className="relative h-[500px] w-full overflow-hidden">
+      <div 
+        className="relative h-[500px] w-full overflow-hidden"
+        onMouseDown={handleCarouselInteraction}
+        onTouchStart={handleCarouselInteraction}
+      >
         <Carousel
           handleClick={handleClick}
           controls={controls}
