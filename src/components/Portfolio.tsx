@@ -1,9 +1,32 @@
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, Instagram, Globe, Play, FileText } from "lucide-react";
+import { ExternalLink, Instagram, Globe, Play, FileText, Images } from "lucide-react";
+import { useState } from "react";
+
+import portfolio1 from "@/assets/portfolio-1.jpg";
+import portfolio2 from "@/assets/portfolio-2.jpg";
+import portfolio3 from "@/assets/portfolio-3.jpg";
+import portfolio4 from "@/assets/portfolio-4.jpg";
+import portfolio5 from "@/assets/portfolio-5.png";
+import portfolio6 from "@/assets/portfolio-6.png";
+import portfolio7 from "@/assets/portfolio-7.jpg";
+import portfolio8 from "@/assets/portfolio-8.jpg";
+
+const portfolioImages = [
+  { src: portfolio1, alt: "Projeto 1" },
+  { src: portfolio2, alt: "Projeto 2" },
+  { src: portfolio3, alt: "Projeto 3" },
+  { src: portfolio4, alt: "Projeto 4" },
+  { src: portfolio5, alt: "Projeto 5" },
+  { src: portfolio6, alt: "Projeto 6" },
+  { src: portfolio7, alt: "Projeto 7" },
+  { src: portfolio8, alt: "Projeto 8" },
+];
 
 const Portfolio = () => {
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
   const websites = [
     { name: "Temas Ambiental", url: "https://temasaambiental.com.br/" },
     { name: "Veg Certificado", url: "https://vegcertificado.com.br/" },
@@ -54,6 +77,46 @@ const Portfolio = () => {
             Confira alguns dos projetos que desenvolvemos e clientes que atendemos
           </p>
         </div>
+
+        {/* Galeria de Imagens */}
+        <div className="mb-16">
+          <h3 className="text-2xl font-bold text-center mb-8 text-primary">
+            <Images className="w-6 h-6 inline-block mr-2" />
+            Galeria de Projetos
+          </h3>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            {portfolioImages.map((image, index) => (
+              <div 
+                key={index}
+                className="relative group overflow-hidden rounded-xl border border-primary/20 hover:border-primary/60 transition-all duration-300 cursor-pointer aspect-square"
+                onClick={() => setSelectedImage(image.src)}
+              >
+                <img 
+                  src={image.src} 
+                  alt={image.alt}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-4">
+                  <span className="text-foreground font-medium text-sm">Ver projeto</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Modal de imagem ampliada */}
+        {selectedImage && (
+          <div 
+            className="fixed inset-0 z-50 bg-background/90 backdrop-blur-sm flex items-center justify-center p-4"
+            onClick={() => setSelectedImage(null)}
+          >
+            <img 
+              src={selectedImage} 
+              alt="Projeto ampliado"
+              className="max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl border border-primary/30"
+            />
+          </div>
+        )}
 
         {/* Websites Desenvolvidos */}
         <div className="mb-16">
