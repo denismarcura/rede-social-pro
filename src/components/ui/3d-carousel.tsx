@@ -1,13 +1,15 @@
 "use client"
 
-import { memo, useEffect, useLayoutEffect, useMemo, useState } from "react"
+import { memo, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react"
 import {
   AnimatePresence,
   motion,
   useAnimation,
   useMotionValue,
   useTransform,
+  type MotionValue,
 } from "framer-motion"
+import { ChevronLeft, ChevronRight } from "lucide-react"
 
 export const useIsomorphicLayoutEffect =
   typeof window !== "undefined" ? useLayoutEffect : useEffect
@@ -88,11 +90,13 @@ const Carousel = memo(
     controls,
     cards,
     isCarouselActive,
+    onRotationChange,
   }: {
     handleClick: (imgUrl: string, index: number) => void
     controls: any
     cards: string[]
     isCarouselActive: boolean
+    onRotationChange?: (rotation: any) => void
   }) => {
     const isScreenSizeSm = useMediaQuery("(max-width: 640px)")
     const cylinderWidth = isScreenSizeSm ? 1100 : 1800
@@ -104,6 +108,12 @@ const Carousel = memo(
       rotation,
       (value) => `rotate3d(0, 1, 0, ${value}deg)`
     )
+
+    useEffect(() => {
+      if (onRotationChange) {
+        onRotationChange(rotation)
+      }
+    }, [rotation, onRotationChange])
 
     return (
       <div
@@ -179,6 +189,7 @@ function ThreeDPhotoCarousel() {
   const [isCarouselActive, setIsCarouselActive] = useState(true)
   const controls = useAnimation()
   const cards = useMemo(() => portfolioImages, [])
+  const rotationRef = useRef<MotionValue<number> | null>(null)
 
   useEffect(() => {
     console.log("Cards loaded:", cards)
@@ -194,6 +205,26 @@ function ThreeDPhotoCarousel() {
     setActiveImg(null)
     setIsCarouselActive(true)
   }
+
+  const handleRotationChange = useCallback((rotation: MotionValue<number>) => {
+    rotationRef.current = rotation
+  }, [])
+
+  const handlePrev = useCallback(() => {
+    if (rotationRef.current && isCarouselActive) {
+      const currentRotation = rotationRef.current.get()
+      const anglePerCard = 360 / cards.length
+      rotationRef.current.set(currentRotation + anglePerCard)
+    }
+  }, [cards.length, isCarouselActive])
+
+  const handleNext = useCallback(() => {
+    if (rotationRef.current && isCarouselActive) {
+      const currentRotation = rotationRef.current.get()
+      const anglePerCard = 360 / cards.length
+      rotationRef.current.set(currentRotation - anglePerCard)
+    }
+  }, [cards.length, isCarouselActive])
 
   return (
     <motion.div layout className="relative">
@@ -234,7 +265,24 @@ function ThreeDPhotoCarousel() {
           controls={controls}
           cards={cards}
           isCarouselActive={isCarouselActive}
+          onRotationChange={handleRotationChange}
         />
+        
+        {/* Navigation Arrows */}
+        <button
+          onClick={handlePrev}
+          className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-primary/90 hover:bg-primary text-primary-foreground rounded-full p-3 shadow-lg transition-all duration-300 hover:scale-110 hover:shadow-glow"
+          aria-label="Anterior"
+        >
+          <ChevronLeft className="w-6 h-6" />
+        </button>
+        <button
+          onClick={handleNext}
+          className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-primary/90 hover:bg-primary text-primary-foreground rounded-full p-3 shadow-lg transition-all duration-300 hover:scale-110 hover:shadow-glow"
+          aria-label="Próximo"
+        >
+          <ChevronRight className="w-6 h-6" />
+        </button>
       </div>
     </motion.div>
   )
