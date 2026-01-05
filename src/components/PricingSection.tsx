@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Check, Clock } from "lucide-react";
+import { Check, Clock, Star } from "lucide-react";
 import PromoCountdown from "./PromoCountdown";
 
 const PLANO_PRATA_WHATSAPP = 'https://api.whatsapp.com/send?phone=5519993937708&text=Ol%C3%A1%20gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20o%20plano%20prata%20de%20R%24%20199%2C00%20mensais';
@@ -176,21 +176,18 @@ const PricingSection = () => {
                   : "border-border/30 bg-background/30 backdrop-blur-sm"
               } transition-all hover:scale-105`}
             >
-              {/* Santa Hat for Promo */}
+              {/* 5 Golden Stars for Promo */}
               {plan.isPromo && (
                 <>
-                  {/* Santa Hat */}
-                  <div className="absolute -top-8 -left-3 z-20">
-                    <svg width="60" height="50" viewBox="0 0 100 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <ellipse cx="50" cy="72" rx="45" ry="10" fill="#FFFFFF"/>
-                      <path d="M10 70 Q15 30 50 15 Q85 30 90 70" fill="#DC2626"/>
-                      <circle cx="75" cy="20" r="12" fill="#FFFFFF"/>
-                      <path d="M50 15 Q60 10 75 20" stroke="#DC2626" strokeWidth="8" fill="none"/>
-                    </svg>
+                  {/* 5 Golden Stars */}
+                  <div className="absolute -top-6 left-1/2 -translate-x-1/2 flex gap-1 z-20">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-5 h-5 text-yellow-400 fill-yellow-400 drop-shadow-lg" />
+                    ))}
                   </div>
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+                  <div className="absolute top-4 left-1/2 -translate-x-1/2">
                     <div className="bg-gradient-to-r from-red-600 to-red-500 text-white text-[10px] font-bold px-3 py-1 rounded-full flex items-center gap-1 shadow-lg">
-                      🎄 PROMOÇÃO DE NATAL!
+                      ⭐ PROMOÇÃO ESPECIAL!
                     </div>
                   </div>
                 </>
