@@ -81,8 +81,8 @@ const Portfolio = () => {
         {/* Galeria de Imagens */}
         <div className="mb-16">
           <h3 className="text-2xl font-bold text-center mb-8 text-primary">
-            <Images className="w-6 h-6 inline-block mr-2" />
-            Galeria de Projetos
+            <Globe className="w-6 h-6 inline-block mr-2" />
+            MÍDIA FOCO | MARKETING DIGITAL COMPLETO
           </h3>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {portfolioImages.map((image, index) => (
