@@ -4,6 +4,7 @@ import whatsappChat3 from "@/assets/whatsapp-chat-3.webp";
 import whatsappChat4 from "@/assets/whatsapp-chat-4.webp";
 import whatsappChat5 from "@/assets/whatsapp-chat-5.webp";
 import { MessageCircle } from "lucide-react";
+import Autoplay from "embla-carousel-autoplay";
 import {
   Carousel,
   CarouselContent,
@@ -57,6 +58,12 @@ const WhatsAppTestimonials = () => {
               align: "start",
               loop: true,
             }}
+            plugins={[
+              Autoplay({
+                delay: 3000,
+                stopOnInteraction: true,
+              }),
+            ]}
             className="w-full"
           >
             <CarouselContent className="-ml-2 md:-ml-4">
