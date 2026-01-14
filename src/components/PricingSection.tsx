@@ -1,11 +1,111 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Check, Clock, Star, Zap, CreditCard } from "lucide-react";
+import { Check, Clock, Star, Zap, CreditCard, Bot, MessageCircle, Phone, X } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 import PromoCountdown from "./PromoCountdown";
 
 const PLANO_PRATA_WHATSAPP = 'https://api.whatsapp.com/send?phone=5519993937708&text=Ol%C3%A1%20gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20o%20plano%20prata%20de%20R%24%20199%2C00%20mensais';
 const PLANO_HYPERFOCO_WHATSAPP = 'https://api.whatsapp.com/send?phone=5519993937708&text=Ol%C3%A1%20gostaria%20de%20contratar%20o%20Plano%20Hyperfoco%20de%20R%24%2099%2C90';
+const WHATSAPP_LINK = "https://wa.me/5519993937708?text=Ol%C3%A1%2C%20estou%20com%20d%C3%BAvidas%20pode%20me%20ajudar%0A";
 
-const PricingSection = () => {
+// Miguel Button Component
+const MiguelButtonInline = ({ onOpenMiguelChat }: { onOpenMiguelChat: () => void }) => {
+  const [showOptions, setShowOptions] = useState(false);
+
+  return (
+    <div className="relative inline-block">
+      <motion.button
+        whileHover={{ scale: 1.02 }}
+        whileTap={{ scale: 0.98 }}
+        onClick={() => setShowOptions(!showOptions)}
+        className="relative overflow-hidden bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white font-semibold px-4 py-2.5 rounded-xl shadow-lg text-sm"
+      >
+        {/* Animated background */}
+        <motion.div
+          className="absolute inset-0 bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500"
+          animate={{ x: ["0%", "100%", "0%"] }}
+          transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+          style={{ filter: "blur(20px)", opacity: 0.5 }}
+        />
+        <motion.div
+          className="absolute inset-0"
+          animate={{
+            background: [
+              "radial-gradient(circle at 20% 50%, rgba(255,255,255,0.3) 0%, transparent 50%)",
+              "radial-gradient(circle at 80% 50%, rgba(255,255,255,0.3) 0%, transparent 50%)",
+              "radial-gradient(circle at 20% 50%, rgba(255,255,255,0.3) 0%, transparent 50%)",
+            ],
+          }}
+          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <span className="relative flex items-center gap-2">
+          <Bot className="w-4 h-4" />
+          Tire dúvidas com Miguel
+        </span>
+      </motion.button>
+
+      <AnimatePresence>
+        {showOptions && (
+          <>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 z-40"
+              onClick={() => setShowOptions(false)}
+            />
+            <motion.div
+              initial={{ opacity: 0, y: 10, scale: 0.95 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 10, scale: 0.95 }}
+              className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-64 bg-white rounded-xl shadow-2xl z-50 overflow-hidden"
+            >
+              <div className="bg-gradient-to-r from-blue-500 to-purple-600 text-white p-3">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <Bot className="w-5 h-5" />
+                    <span className="font-semibold text-sm">Como posso ajudar?</span>
+                  </div>
+                  <button onClick={() => setShowOptions(false)} className="p-1 hover:bg-white/20 rounded-full">
+                    <X className="w-4 h-4" />
+                  </button>
+                </div>
+              </div>
+              <div className="p-3 space-y-2">
+                <motion.button
+                  whileHover={{ scale: 1.02, x: 3 }}
+                  whileTap={{ scale: 0.98 }}
+                  onClick={() => { window.open(WHATSAPP_LINK, "_blank"); setShowOptions(false); }}
+                  className="w-full bg-green-500 hover:bg-green-600 text-white p-2.5 rounded-lg flex items-center gap-2 text-sm"
+                >
+                  <Phone className="w-4 h-4" />
+                  <div className="text-left">
+                    <p className="font-medium">Falar com Atendente</p>
+                    <p className="text-[10px] text-white/80">Via WhatsApp</p>
+                  </div>
+                </motion.button>
+                <motion.button
+                  whileHover={{ scale: 1.02, x: 3 }}
+                  whileTap={{ scale: 0.98 }}
+                  onClick={() => { onOpenMiguelChat(); setShowOptions(false); }}
+                  className="w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white p-2.5 rounded-lg flex items-center gap-2 text-sm"
+                >
+                  <MessageCircle className="w-4 h-4" />
+                  <div className="text-left">
+                    <p className="font-medium">Falar com Miguel</p>
+                    <p className="text-[10px] text-white/80">Digite suas dúvidas</p>
+                  </div>
+                </motion.button>
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+};
+
+const PricingSection = ({ onOpenMiguelChat }: { onOpenMiguelChat?: () => void }) => {
   const hyperfocoOffer = {
     title: "Plano Hyperfoco",
     subtitle: "Impulsione sua marca hoje mesmo",
@@ -187,7 +287,7 @@ const PricingSection = () => {
             </div>
 
             {/* CTA Button */}
-            <div className="text-center">
+            <div className="text-center space-y-4">
               <Button
                 size="lg"
                 className="bg-gradient-to-r from-emerald-600 to-emerald-500 hover:from-emerald-500 hover:to-emerald-400 text-white font-bold text-sm uppercase tracking-wider px-12 py-6 rounded-full shadow-lg shadow-emerald-500/30 transition-all hover:scale-105"
@@ -195,6 +295,11 @@ const PricingSection = () => {
               >
                 QUERO O PLANO HYPERFOCO
               </Button>
+              {onOpenMiguelChat && (
+                <div className="pt-2">
+                  <MiguelButtonInline onOpenMiguelChat={onOpenMiguelChat} />
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -249,7 +354,7 @@ const PricingSection = () => {
             </div>
 
             {/* CTA Button */}
-            <div className="text-center">
+            <div className="text-center space-y-4">
               <Button
                 size="lg"
                 className="bg-primary hover:bg-primary/90 text-white font-bold text-sm uppercase tracking-wider px-16 py-6 rounded-full"
@@ -257,6 +362,11 @@ const PricingSection = () => {
               >
                 {mainOffer.cta}
               </Button>
+              {onOpenMiguelChat && (
+                <div className="pt-2">
+                  <MiguelButtonInline onOpenMiguelChat={onOpenMiguelChat} />
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -354,6 +464,13 @@ const PricingSection = () => {
               >
                 {plan.isPromo ? 'APROVEITAR AGORA!' : 'Solicitar Orçamento'}
               </Button>
+              
+              {/* Miguel Button */}
+              {onOpenMiguelChat && (
+                <div className="mt-3 flex justify-center">
+                  <MiguelButtonInline onOpenMiguelChat={onOpenMiguelChat} />
+                </div>
+              )}
             </div>
           ))}
         </div>

@@ -6,7 +6,7 @@ import PromoCountdown from "./PromoCountdown";
 
 const PLANO_PRATA_WHATSAPP = 'https://api.whatsapp.com/send?phone=5519993937708&text=Ol%C3%A1%20gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20o%20plano%20prata%20de%20R%24%20199%2C00%20mensais';
 
-const Pricing = () => {
+const Pricing = ({ onOpenMiguelChat }: { onOpenMiguelChat?: () => void }) => {
   const plans = [
     {
       name: "Plano Prata",
