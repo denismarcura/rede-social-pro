@@ -1,9 +1,9 @@
+import { useState } from "react";
 import Hero from "@/components/Hero";
 import PricingSection from "@/components/PricingSection";
 import TrafficCTA from "@/components/TrafficCTA";
 import WhatsAppTestimonials from "@/components/WhatsAppTestimonials";
 import ClientTestimonials from "@/components/ClientTestimonials";
-
 import PromoBadges from "@/components/PromoBadges";
 import CTABanner from "@/components/CTABanner";
 import Services from "@/components/Services";
@@ -16,13 +16,20 @@ import Contact from "@/components/Contact";
 import ScrollReveal from "@/components/ScrollReveal";
 import Footer from "@/components/Footer";
 import PromoPopup from "@/components/PromoPopup";
+import MiguelChat from "@/components/MiguelChat";
 
 const Index = () => {
+  const [isMiguelChatOpen, setIsMiguelChatOpen] = useState(false);
+
+  const handleOpenMiguelChat = () => {
+    setIsMiguelChatOpen(true);
+  };
+
   return (
     <div className="min-h-screen bg-background">
       <PromoPopup />
       <Hero />
-      <PricingSection />
+      <PricingSection onOpenMiguelChat={handleOpenMiguelChat} />
       <PromoBadges />
       <TrafficCTA />
       <WhatsAppTestimonials />
@@ -40,7 +47,7 @@ const Index = () => {
         <Portfolio />
       </ScrollReveal>
       <ScrollReveal delay={0.1}>
-        <Pricing />
+        <Pricing onOpenMiguelChat={handleOpenMiguelChat} />
       </ScrollReveal>
       <ScrollReveal delay={0.1}>
         <FAQ />
@@ -50,6 +57,7 @@ const Index = () => {
       </ScrollReveal>
       <Footer />
       <WhatsAppFloat />
+      <MiguelChat isOpen={isMiguelChatOpen} setIsOpen={setIsMiguelChatOpen} />
     </div>
   );
 };
