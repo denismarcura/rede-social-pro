@@ -43,28 +43,34 @@ export type Database = {
           created_at: string
           elevenlabs_api_key: string | null
           id: string
+          maritaca_api_key: string | null
           resend_api_key: string | null
           system_prompt: string | null
           training_content: string | null
           updated_at: string
+          whatsapp_api_key: string | null
         }
         Insert: {
           created_at?: string
           elevenlabs_api_key?: string | null
           id?: string
+          maritaca_api_key?: string | null
           resend_api_key?: string | null
           system_prompt?: string | null
           training_content?: string | null
           updated_at?: string
+          whatsapp_api_key?: string | null
         }
         Update: {
           created_at?: string
           elevenlabs_api_key?: string | null
           id?: string
+          maritaca_api_key?: string | null
           resend_api_key?: string | null
           system_prompt?: string | null
           training_content?: string | null
           updated_at?: string
+          whatsapp_api_key?: string | null
         }
         Relationships: []
       }
