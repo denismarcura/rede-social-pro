@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Bot, Key, Brain, Save, Eye, EyeOff, ArrowLeft, Loader2, CheckCircle, LogOut } from "lucide-react";
+import { Bot, Key, Brain, Save, Eye, EyeOff, ArrowLeft, Loader2, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -8,23 +8,15 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
-import { Link, useNavigate } from "react-router-dom";
-import { User, Session } from "@supabase/supabase-js";
+import { Link } from "react-router-dom";
 
 const AdminDashboard = () => {
-  const [user, setUser] = useState<User | null>(null);
-  const [session, setSession] = useState<Session | null>(null);
-  const [isAdmin, setIsAdmin] = useState(false);
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   const [showElevenLabsKey, setShowElevenLabsKey] = useState(false);
   const [showResendKey, setShowResendKey] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-  const [isAuthLoading, setIsAuthLoading] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
   const [saveSuccess, setSaveSuccess] = useState(false);
   const { toast } = useToast();
-  const navigate = useNavigate();
 
   const [config, setConfig] = useState({
     id: "",
@@ -35,123 +27,8 @@ const AdminDashboard = () => {
   });
 
   useEffect(() => {
-    // Set up auth state listener FIRST
-    const { data: { subscription } } = supabase.auth.onAuthStateChange(
-      (event, session) => {
-        setSession(session);
-        setUser(session?.user ?? null);
-        
-        // Check admin role with setTimeout to avoid deadlock
-        if (session?.user) {
-          setTimeout(() => {
-            checkAdminRole(session.user.id);
-          }, 0);
-        } else {
-          setIsAdmin(false);
-          setIsLoading(false);
-        }
-      }
-    );
-
-    // THEN check for existing session
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setSession(session);
-      setUser(session?.user ?? null);
-      
-      if (session?.user) {
-        checkAdminRole(session.user.id);
-      } else {
-        setIsLoading(false);
-      }
-    });
-
-    return () => subscription.unsubscribe();
+    loadConfig();
   }, []);
-
-  const checkAdminRole = async (userId: string) => {
-    try {
-      const { data, error } = await supabase
-        .from("user_roles")
-        .select("role")
-        .eq("user_id", userId)
-        .eq("role", "admin")
-        .maybeSingle();
-
-      if (error) {
-        console.error("Error checking admin role:", error);
-        setIsAdmin(false);
-      } else {
-        setIsAdmin(!!data);
-        if (data) {
-          loadConfig();
-        }
-      }
-    } catch (error) {
-      console.error("Error checking admin role:", error);
-      setIsAdmin(false);
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  const handleLogin = async (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    if (!email || !password) {
-      toast({
-        title: "Campos obrigatórios",
-        description: "Por favor, preencha email e senha.",
-        variant: "destructive",
-      });
-      return;
-    }
-
-    setIsAuthLoading(true);
-    try {
-      const { data, error } = await supabase.auth.signInWithPassword({
-        email,
-        password,
-      });
-
-      if (error) {
-        toast({
-          title: "Erro ao entrar",
-          description: error.message === "Invalid login credentials" 
-            ? "Email ou senha incorretos." 
-            : error.message,
-          variant: "destructive",
-        });
-        return;
-      }
-
-      if (data.user) {
-        // Auth state change will handle the rest
-        setEmail("");
-        setPassword("");
-      }
-    } catch (error) {
-      console.error("Login error:", error);
-      toast({
-        title: "Erro ao entrar",
-        description: "Ocorreu um erro ao tentar fazer login.",
-        variant: "destructive",
-      });
-    } finally {
-      setIsAuthLoading(false);
-    }
-  };
-
-  const handleLogout = async () => {
-    await supabase.auth.signOut();
-    setIsAdmin(false);
-    setConfig({
-      id: "",
-      elevenlabs_api_key: "",
-      resend_api_key: "",
-      system_prompt: "",
-      training_content: "",
-    });
-  };
 
   const loadConfig = async () => {
     setIsLoading(true);
@@ -177,7 +54,7 @@ const AdminDashboard = () => {
       console.error("Error loading config:", error);
       toast({
         title: "Erro ao carregar",
-        description: "Não foi possível carregar as configurações. Verifique se você tem permissão de admin.",
+        description: "Não foi possível carregar as configurações.",
         variant: "destructive",
       });
     } finally {
@@ -220,7 +97,6 @@ const AdminDashboard = () => {
     }
   };
 
-  // Loading state
   if (isLoading) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900 flex items-center justify-center">
@@ -229,118 +105,6 @@ const AdminDashboard = () => {
     );
   }
 
-  // Not logged in - show login form
-  if (!user) {
-    return (
-      <div className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900 flex items-center justify-center p-4">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="w-full max-w-md"
-        >
-          <Card className="bg-white/10 backdrop-blur-lg border-white/20">
-            <CardHeader className="text-center">
-              <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 flex items-center justify-center">
-                <Bot className="w-10 h-10 text-white" />
-              </div>
-              <CardTitle className="text-2xl text-white">Dashboard Admin</CardTitle>
-              <CardDescription className="text-gray-300">
-                Entre com suas credenciais de administrador
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <form onSubmit={handleLogin} className="space-y-4">
-                <div>
-                  <Label htmlFor="email" className="text-white">Email</Label>
-                  <Input
-                    id="email"
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="admin@exemplo.com"
-                    className="bg-white/10 border-white/20 text-white placeholder:text-gray-400"
-                    disabled={isAuthLoading}
-                  />
-                </div>
-                <div>
-                  <Label htmlFor="password" className="text-white">Senha</Label>
-                  <Input
-                    id="password"
-                    type="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    placeholder="Digite a senha"
-                    className="bg-white/10 border-white/20 text-white placeholder:text-gray-400"
-                    disabled={isAuthLoading}
-                  />
-                </div>
-                <Button
-                  type="submit"
-                  disabled={isAuthLoading}
-                  className="w-full bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700"
-                >
-                  {isAuthLoading ? (
-                    <>
-                      <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-                      Entrando...
-                    </>
-                  ) : (
-                    "Acessar Dashboard"
-                  )}
-                </Button>
-              </form>
-            </CardContent>
-          </Card>
-        </motion.div>
-      </div>
-    );
-  }
-
-  // Logged in but not admin
-  if (!isAdmin) {
-    return (
-      <div className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900 flex items-center justify-center p-4">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="w-full max-w-md"
-        >
-          <Card className="bg-white/10 backdrop-blur-lg border-white/20">
-            <CardHeader className="text-center">
-              <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-red-500/20 flex items-center justify-center">
-                <Bot className="w-10 h-10 text-red-400" />
-              </div>
-              <CardTitle className="text-2xl text-white">Acesso Negado</CardTitle>
-              <CardDescription className="text-gray-300">
-                Você está logado como {user.email}, mas não tem permissão de administrador.
-              </CardDescription>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <Button
-                onClick={handleLogout}
-                variant="outline"
-                className="w-full border-white/20 text-white hover:bg-white/10"
-              >
-                <LogOut className="w-4 h-4 mr-2" />
-                Sair e entrar com outra conta
-              </Button>
-              <Link to="/">
-                <Button
-                  variant="ghost"
-                  className="w-full text-white/70 hover:text-white hover:bg-white/10"
-                >
-                  <ArrowLeft className="w-4 h-4 mr-2" />
-                  Voltar ao site
-                </Button>
-              </Link>
-            </CardContent>
-          </Card>
-        </motion.div>
-      </div>
-    );
-  }
-
-  // Admin dashboard
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900 p-4 md:p-8">
       <div className="max-w-4xl mx-auto">
@@ -354,17 +118,6 @@ const AdminDashboard = () => {
               <ArrowLeft className="w-4 h-4" />
               Voltar ao site
             </Link>
-            <div className="flex items-center gap-3">
-              <span className="text-sm text-gray-400">{user.email}</span>
-              <Button
-                onClick={handleLogout}
-                variant="ghost"
-                size="sm"
-                className="text-white/70 hover:text-white hover:bg-white/10"
-              >
-                <LogOut className="w-4 h-4" />
-              </Button>
-            </div>
           </div>
           <div className="flex items-center gap-4">
             <div className="w-16 h-16 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 flex items-center justify-center">
