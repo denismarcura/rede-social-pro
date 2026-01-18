@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Bot, Key, Brain, Save, Eye, EyeOff, ArrowLeft, Loader2, CheckCircle } from "lucide-react";
+import { Bot, Key, Brain, Save, Eye, EyeOff, ArrowLeft, Loader2, CheckCircle, MessageSquare, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -13,6 +13,8 @@ import { Link } from "react-router-dom";
 const AdminDashboard = () => {
   const [showElevenLabsKey, setShowElevenLabsKey] = useState(false);
   const [showResendKey, setShowResendKey] = useState(false);
+  const [showMaritacaKey, setShowMaritacaKey] = useState(false);
+  const [showWhatsAppKey, setShowWhatsAppKey] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [isSaving, setIsSaving] = useState(false);
   const [saveSuccess, setSaveSuccess] = useState(false);
@@ -22,6 +24,8 @@ const AdminDashboard = () => {
     id: "",
     elevenlabs_api_key: "",
     resend_api_key: "",
+    maritaca_api_key: "",
+    whatsapp_api_key: "",
     system_prompt: "",
     training_content: "",
   });
@@ -46,6 +50,8 @@ const AdminDashboard = () => {
           id: data.id,
           elevenlabs_api_key: data.elevenlabs_api_key || "",
           resend_api_key: data.resend_api_key || "",
+          maritaca_api_key: (data as any).maritaca_api_key || "",
+          whatsapp_api_key: (data as any).whatsapp_api_key || "",
           system_prompt: data.system_prompt || "",
           training_content: data.training_content || "",
         });
@@ -71,9 +77,11 @@ const AdminDashboard = () => {
         .update({
           elevenlabs_api_key: config.elevenlabs_api_key,
           resend_api_key: config.resend_api_key,
+          maritaca_api_key: config.maritaca_api_key,
+          whatsapp_api_key: config.whatsapp_api_key,
           system_prompt: config.system_prompt,
           training_content: config.training_content,
-        })
+        } as any)
         .eq("id", config.id);
 
       if (error) throw error;
@@ -146,7 +154,7 @@ const AdminDashboard = () => {
                   <div>
                     <CardTitle className="text-xl text-white">Chaves de API</CardTitle>
                     <CardDescription className="text-gray-300">
-                      Configure suas chaves para ElevenLabs e Resend
+                      Configure suas chaves para todas as integrações
                     </CardDescription>
                   </div>
                 </div>
@@ -198,6 +206,64 @@ const AdminDashboard = () => {
                       {showResendKey ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                     </button>
                   </div>
+                </div>
+
+                <div>
+                  <Label htmlFor="maritaca" className="text-white flex items-center gap-2">
+                    <Sparkles className="w-4 h-4 text-cyan-400" />
+                    Maritaca AI 4.0 API Key
+                    <span className="text-xs text-gray-400">(IA brasileira)</span>
+                  </Label>
+                  <div className="relative">
+                    <Input
+                      id="maritaca"
+                      type={showMaritacaKey ? "text" : "password"}
+                      value={config.maritaca_api_key}
+                      onChange={(e) => setConfig({ ...config, maritaca_api_key: e.target.value })}
+                      placeholder="mrt_..."
+                      className="bg-white/10 border-white/20 text-white placeholder:text-gray-400 pr-10"
+                    />
+                    <button
+                      type="button"
+                      onClick={() => setShowMaritacaKey(!showMaritacaKey)}
+                      className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-white"
+                    >
+                      {showMaritacaKey ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                    </button>
+                  </div>
+                  <p className="text-xs text-cyan-400 mt-1">
+                    <a href="https://www.maritaca.ai/" target="_blank" rel="noopener noreferrer" className="hover:underline">
+                      Obter API Key na Maritaca AI →
+                    </a>
+                  </p>
+                </div>
+
+                <div>
+                  <Label htmlFor="whatsapp" className="text-white flex items-center gap-2">
+                    <MessageSquare className="w-4 h-4 text-green-400" />
+                    WhatsApp API Key
+                    <span className="text-xs text-gray-400">(integração)</span>
+                  </Label>
+                  <div className="relative">
+                    <Input
+                      id="whatsapp"
+                      type={showWhatsAppKey ? "text" : "password"}
+                      value={config.whatsapp_api_key}
+                      onChange={(e) => setConfig({ ...config, whatsapp_api_key: e.target.value })}
+                      placeholder="whatsapp_api_..."
+                      className="bg-white/10 border-white/20 text-white placeholder:text-gray-400 pr-10"
+                    />
+                    <button
+                      type="button"
+                      onClick={() => setShowWhatsAppKey(!showWhatsAppKey)}
+                      className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-white"
+                    >
+                      {showWhatsAppKey ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                    </button>
+                  </div>
+                  <p className="text-xs text-green-400 mt-1">
+                    API para integração com WhatsApp Business
+                  </p>
                 </div>
               </CardContent>
             </Card>
