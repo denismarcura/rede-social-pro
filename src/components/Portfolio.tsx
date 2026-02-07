@@ -30,7 +30,7 @@ const Portfolio = () => {
   const websites = [
     { name: "Temas Ambiental", url: "https://temasaambiental.com.br/" },
     { name: "Veg Certificado", url: "https://vegcertificado.com.br/" },
-    { name: "Mega Office Coworking", url: "https://megaofficecoworking.com.br/" },
+    
     { name: "Juliana MV Ergna", url: "https://julianamvergna.com.br/" },
     { name: "Gold Brasil Polímeros", url: "https://goldbrasilpolimeros.com.br/" },
     { name: "Mídia Foco Digital", url: "https://rede-social-pro-kit.lovable.app/" },
