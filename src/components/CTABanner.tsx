@@ -136,7 +136,7 @@ const CTABanner = () => {
             <Button 
               variant="hero"
               size="lg" 
-              className="font-bold text-xl px-12 py-6 rounded-full shadow-2xl hover:shadow-glow hover:scale-105 transition-all duration-300 animate-pulse hover:animate-none"
+              className="font-bold text-sm sm:text-xl px-6 py-3 sm:px-12 sm:py-6 rounded-full shadow-2xl hover:shadow-glow hover:scale-105 transition-all duration-300 animate-pulse hover:animate-none"
               onClick={() => window.open('https://wa.me/5519993937708?text=oL%C3%81%2C%20MARKETING%20DIGITAL%2C%20ESTOU%20COM%20D%C3%9AVIDAS%20PODE%20ME%20AJUDAR%20%3F', '_blank')}
             >
               QUERO APROVEITAR ESTA OFERTA!
@@ -149,10 +149,10 @@ const CTABanner = () => {
               <Button 
                 variant="outline" 
                 size="lg"
-                className="bg-transparent border-primary/50 text-white hover:bg-primary/20 font-semibold text-lg px-8 py-3 rounded-full"
+                className="bg-transparent border-primary/50 text-white hover:bg-primary/20 font-semibold text-xs sm:text-lg px-4 py-2 sm:px-8 sm:py-3 rounded-full"
                 onClick={() => window.open('https://drive.google.com/file/d/1ZfzEJGOHcJNzM7CEYRBzSbZOkAw7ygyT/view?usp=sharing', '_blank')}
               >
-                <Download className="w-5 h-5 mr-2" />
+                <Download className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
                 BAIXAR NOSSO FOLDER PROFISSIONAL
               </Button>
               <p className="text-sm text-white/70">

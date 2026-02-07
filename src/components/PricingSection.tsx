@@ -357,7 +357,7 @@ const PricingSection = ({ onOpenMiguelChat }: { onOpenMiguelChat?: () => void })
             <div className="text-center space-y-4">
               <Button
                 size="lg"
-                className="bg-primary hover:bg-primary/90 text-white font-bold text-sm uppercase tracking-wider px-16 py-6 rounded-full"
+                className="bg-primary hover:bg-primary/90 text-white font-bold text-xs sm:text-sm uppercase tracking-wider px-8 py-4 sm:px-16 sm:py-6 rounded-full"
                 onClick={() => window.open('https://wa.me/5519993937708?text=oL%C3%81%2C%20MARKETING%20DIGITAL%2C%20ESTOU%20COM%20D%C3%9AVIDAS%20PODE%20ME%20AJUDAR%20%3F', '_blank')}
               >
                 {mainOffer.cta}

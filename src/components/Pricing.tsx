@@ -226,7 +226,7 @@ const Pricing = ({ onOpenMiguelChat }: { onOpenMiguelChat?: () => void }) => {
           <div className="text-center">
             <Button 
               size="lg"
-              className="bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-lg px-12 py-6 rounded-lg"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-sm sm:text-lg px-6 py-3 sm:px-12 sm:py-6 rounded-lg"
               onClick={() => window.open('https://wa.me/5519993937708?text=oL%C3%81%2C%20MARKETING%20DIGITAL%2C%20ESTOU%20COM%20D%C3%9AVIDAS%20PODE%20ME%20AJUDAR%20%3F', '_blank')}
             >
               QUERO COMEÇAR AGORA
