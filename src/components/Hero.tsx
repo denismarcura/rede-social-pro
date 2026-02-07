@@ -37,11 +37,11 @@ const Hero = () => {
             </p>
           </div>
           
-          <div className="flex flex-col sm:flex-row gap-4">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 items-center">
             <Button 
               variant="hero" 
               size="lg" 
-              className="text-lg px-8 py-4"
+              className="text-sm sm:text-lg px-5 py-2.5 sm:px-8 sm:py-4 w-full sm:w-auto"
               onClick={() => window.open('https://wa.me/5519993937708?text=oL%C3%81%2C%20MARKETING%20DIGITAL%2C%20ESTOU%20COM%20D%C3%9AVIDAS%20PODE%20ME%20AJUDAR%20%3F', '_blank')}
             >
               Você tem alguma dúvida?
@@ -49,7 +49,7 @@ const Hero = () => {
             <Button 
               variant="outline" 
               size="lg" 
-              className="text-lg px-8 py-4"
+              className="text-sm sm:text-lg px-5 py-2.5 sm:px-8 sm:py-4 w-full sm:w-auto"
               onClick={() => {
                 const servicesSection = document.getElementById('services');
                 servicesSection?.scrollIntoView({ behavior: 'smooth' });
@@ -63,10 +63,10 @@ const Hero = () => {
           <Button 
             variant="outline" 
             size="lg" 
-            className="w-full sm:w-auto text-lg px-8 py-4 border-primary/50 hover:border-primary animate-pulse hover:animate-none"
+            className="w-full sm:w-auto text-sm sm:text-lg px-5 py-2.5 sm:px-8 sm:py-4 border-primary/50 hover:border-primary animate-pulse hover:animate-none"
             onClick={() => window.open('https://drive.google.com/file/d/1ZfzEJGOHcJNzM7CEYRBzSbZOkAw7ygyT/view?usp=sharing', '_blank')}
           >
-            <Download className="mr-2 h-5 w-5" />
+            <Download className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
             BAIXAR NOSSO FOLDER PROFISSIONAL
           </Button>
           
