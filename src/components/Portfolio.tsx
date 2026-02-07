@@ -46,7 +46,9 @@ const Portfolio = () => {
     { name: "Demolidora Fortaleza", handle: "@demolidora_fortaleza", url: "https://www.instagram.com/demolidora_fortaleza/" },
     { name: "Express MFT", handle: "@expressmft", url: "https://www.instagram.com/expressmft/" },
     { name: "Dr. Danilo Talarico", handle: "@drdanilotalarico", url: "https://www.instagram.com/drdanilotalarico/" },
-    { name: "Friesian Marchador", handle: "@friesianmarchador", url: "https://www.instagram.com/friesianmarchador/" }
+    { name: "Friesian Marchador", handle: "@friesianmarchador", url: "https://www.instagram.com/friesianmarchador/" },
+    { name: "Foco 520", handle: "@foco.520", url: "https://www.instagram.com/foco.520/" },
+    { name: "Odonto Alves Americana", handle: "@odontoalvesamericana", url: "https://www.instagram.com/odontoalvesamericana/" }
   ];
 
   const youtubeVideos = [
