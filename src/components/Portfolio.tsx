@@ -60,10 +60,6 @@ const Portfolio = () => {
     { title: "Vídeo Promocional 6", url: "https://www.youtube.com/shorts/QQNrq9-Yurg?feature=share" }
   ];
 
-  const professionalFolders = [
-    { title: "Fortaleza Demolidora", url: "https://redesocialpro.com/wp-content/uploads/2025/09/Fortaleza-Demolidora-em-Sao-Paulo.pdf" },
-    { title: "Coletare", url: "https://redesocialpro.com/wp-content/uploads/2025/09/folder-coletare-NOVO.pdf" }
-  ];
 
   return (
     <section id="portfolio" className="py-20 bg-gradient-dark">
