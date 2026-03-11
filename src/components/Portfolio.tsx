@@ -200,34 +200,6 @@ const Portfolio = () => {
           </div>
         </div>
 
-        {/* Folders Profissionais */}
-        <div className="mb-16">
-          <h3 className="text-2xl font-bold text-center mb-8 text-primary">
-            <FileText className="w-6 h-6 inline-block mr-2" />
-            Criação de Folders Profissionais
-          </h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {professionalFolders.map((folder, index) => (
-              <Card key={index} className="bg-gradient-card border border-primary/20 hover:border-primary/40 transition-all duration-300 hover:shadow-glow">
-                <CardContent className="p-4 text-center">
-                  <div className="bg-primary/20 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                    <FileText className="w-8 h-8 text-primary" />
-                  </div>
-                  <h4 className="font-semibold mb-3 text-foreground">{folder.title}</h4>
-                  <Button 
-                    variant="outline" 
-                    size="sm" 
-                    className="w-full"
-                    onClick={() => window.open(folder.url, '_blank')}
-                  >
-                    <FileText className="w-4 h-4 mr-2" />
-                    Visualizar Folder
-                  </Button>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
 
         <div className="text-center mt-12">
           <p className="text-muted-foreground mb-4">
