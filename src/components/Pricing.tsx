@@ -1,10 +1,6 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Check, Star, CreditCard, DollarSign, Smartphone, Users, TrendingUp, Clock, X, Percent } from "lucide-react";
-import PromoCountdown from "./PromoCountdown";
-
-const PLANO_PRATA_WHATSAPP = 'https://api.whatsapp.com/send?phone=5519993937708&text=Ol%C3%A1%20gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20o%20plano%20prata%20de%20R%24%20199%2C00%20mensais';
+import { Check, Star, CreditCard, DollarSign, Smartphone, Users, TrendingUp, Clock, X, Percent, Gift, Zap } from "lucide-react";
 
 const Pricing = ({ onOpenMiguelChat }: { onOpenMiguelChat?: () => void }) => {
   const plans = [
@@ -58,7 +54,7 @@ const Pricing = ({ onOpenMiguelChat }: { onOpenMiguelChat?: () => void }) => {
       name: "Plano Titânio",
       price: "R$ 899",
       period: "/mês",
-      description: "A solução premium para empresas que querem dominar todos os canais digitais",
+      description: "A solução premium para dominar todos os canais digitais",
       popular: false,
       features: [
         "90 Criativos profissionais",
@@ -95,247 +91,242 @@ const Pricing = ({ onOpenMiguelChat }: { onOpenMiguelChat?: () => void }) => {
   return (
     <section className="py-20 bg-background relative overflow-hidden">
       <div className="container mx-auto px-4">
+        {/* Header */}
         <div className="text-center mb-16">
-          <Badge variant="secondary" className="mb-4">Planos e Investimento</Badge>
-          <h2 className="text-4xl font-bold mb-4">
+          <Badge variant="secondary" className="mb-4 text-sm px-4 py-1.5">Planos e Investimento</Badge>
+          <h2 className="text-4xl md:text-5xl font-bold mb-5 tracking-tight">
             <span className="text-primary">ORÇAMENTO</span>
             <br />
             <span className="text-foreground">MARKETING</span> Digital Completo
           </h2>
           
-          {/* Statistics Icons */}
-          <div className="grid grid-cols-3 gap-8 pt-8 max-w-2xl mx-auto mb-12">
-            <div className="text-center">
-              <div className="bg-primary/10 p-4 rounded-full w-16 h-16 mx-auto mb-3 flex items-center justify-center">
-                <Users className="w-8 h-8 text-primary" />
+          {/* Statistics */}
+          <div className="grid grid-cols-3 gap-6 md:gap-8 pt-8 max-w-2xl mx-auto mb-12">
+            {[
+              { icon: Users, value: "500+", label: "Clientes Atendidos" },
+              { icon: TrendingUp, value: "300%", label: "Crescimento Médio" },
+              { icon: Clock, value: "24/7", label: "Suporte Online" },
+            ].map((stat, i) => (
+              <div key={i} className="text-center">
+                <div className="bg-primary/10 p-3 md:p-4 rounded-2xl w-14 h-14 md:w-16 md:h-16 mx-auto mb-3 flex items-center justify-center">
+                  <stat.icon className="w-6 h-6 md:w-7 md:h-7 text-primary" />
+                </div>
+                <div className="text-xl md:text-2xl font-black text-primary">{stat.value}</div>
+                <div className="text-xs md:text-sm text-muted-foreground">{stat.label}</div>
               </div>
-              <div className="text-2xl font-bold text-primary">500+</div>
-              <div className="text-sm text-muted-foreground">Clientes Atendidos</div>
-            </div>
-            <div className="text-center">
-              <div className="bg-primary/10 p-4 rounded-full w-16 h-16 mx-auto mb-3 flex items-center justify-center">
-                <TrendingUp className="w-8 h-8 text-primary" />
-              </div>
-              <div className="text-2xl font-bold text-primary">300%</div>
-              <div className="text-sm text-muted-foreground">Crescimento Médio</div>
-            </div>
-            <div className="text-center">
-              <div className="bg-primary/10 p-4 rounded-full w-16 h-16 mx-auto mb-3 flex items-center justify-center">
-                <Clock className="w-8 h-8 text-primary" />
-              </div>
-              <div className="text-2xl font-bold text-primary">24/7</div>
-              <div className="text-sm text-muted-foreground">Suporte Online</div>
-            </div>
+            ))}
           </div>
           
-          {/* Special Highlights */}
-          <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-8">
-            <div className="bg-gradient-primary p-4 rounded-lg text-primary-foreground">
-              <CreditCard className="w-8 h-8 mx-auto mb-2" />
-              <div className="font-bold">3x sem juros</div>
-              <div className="text-sm">No cartão de crédito</div>
+          {/* Highlights */}
+          <div className="grid md:grid-cols-3 gap-4 max-w-4xl mx-auto mb-8">
+            <div className="bg-primary/10 border border-primary/20 p-5 rounded-2xl">
+              <CreditCard className="w-7 h-7 mx-auto mb-2 text-primary" />
+              <div className="font-bold text-foreground">3x sem juros</div>
+              <div className="text-sm text-muted-foreground">No cartão de crédito</div>
             </div>
-            <div className="bg-red-500/20 border border-red-500 p-4 rounded-lg">
-              <X className="w-8 h-8 mx-auto mb-2 text-red-500" />
-              <div className="font-bold text-red-500">SEM FIDELIDADE</div>
-              <div className="text-sm">Cancele quando quiser</div>
+            <div className="bg-destructive/10 border border-destructive/20 p-5 rounded-2xl">
+              <X className="w-7 h-7 mx-auto mb-2 text-destructive" />
+              <div className="font-bold text-destructive">SEM FIDELIDADE</div>
+              <div className="text-sm text-muted-foreground">Cancele quando quiser</div>
             </div>
-            <div className="bg-green-500/20 border border-green-500 p-4 rounded-lg">
-              <Percent className="w-8 h-8 mx-auto mb-2 text-green-500" />
-              <div className="font-bold text-green-500">50% OFF</div>
-              <div className="text-sm">Preços promocionais</div>
+            <div className="bg-emerald-500/10 border border-emerald-500/20 p-5 rounded-2xl">
+              <Percent className="w-7 h-7 mx-auto mb-2 text-emerald-500" />
+              <div className="font-bold text-emerald-500">ATÉ 50% OFF</div>
+              <div className="text-sm text-muted-foreground">Preços promocionais</div>
             </div>
           </div>
         </div>
 
-        {/* Special Promotion */}
-        <div className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 rounded-2xl p-8 md:p-12 mb-16 border-2 border-primary shadow-glow">
-          <div className="text-center mb-8">
-            <h3 className="text-4xl md:text-5xl font-bold text-primary mb-6">
-              MARKETING DIGITAL COMPLETO
-            </h3>
-            <p className="text-xl md:text-2xl text-foreground font-semibold mb-2">
-              GANHE UMA LANDING PAGE OU WEBSITE
-            </p>
-            <p className="text-lg text-foreground/80">
-              FECHANDO NOSSO PLANO OURO
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-4 max-w-4xl mx-auto mb-8 text-foreground">
-            <div className="flex items-start gap-3">
-              <Check className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
-              <span>60 CRIATIVOS</span>
-            </div>
-            <div className="flex items-start gap-3">
-              <Check className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
-              <span>60 TEXTOS COM SEO</span>
-            </div>
-            <div className="flex items-start gap-3">
-              <Check className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
-              <span>60 POSTAGENS</span>
-            </div>
-            <div className="flex items-start gap-3">
-              <Check className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
-              <span>10 Stories</span>
-            </div>
-            <div className="flex items-start gap-3">
-              <Check className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
-              <span>10 VÍDEOS REELS</span>
-            </div>
-            <div className="flex items-start gap-3">
-              <Check className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
-              <span>TRÁFEGO PAGO (Facebook Instagram)</span>
-            </div>
-            <div className="flex items-start gap-3">
-              <Check className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
-              <span>TRÁFEGO PAGO (Google e Youtube)</span>
-            </div>
-            <div className="flex items-start gap-3">
-              <Check className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
-              <span>BIO PROFISSIONAL</span>
-            </div>
-            <div className="flex items-start gap-3">
-              <Check className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
-              <span>LINKBIO INSTAGRAM</span>
-            </div>
-            <div className="flex items-start gap-3">
-              <Check className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
-              <span>CHECKLIST DIGITAL DE SEU INSTAGRAM</span>
-            </div>
-            <div className="flex items-start gap-3">
-              <Check className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
-              <span>ATENDIMENTO VIP WHATSAPP</span>
-            </div>
-            <div className="flex items-start gap-3">
-              <Check className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
-              <span>RELATÓRIO MENSAL</span>
-            </div>
-          </div>
+        {/* Featured Ouro Promotion */}
+        <div className="relative rounded-3xl mb-16 overflow-hidden">
+          {/* Background with gradient */}
+          <div className="absolute inset-0 bg-gradient-to-br from-card via-card to-primary/10" />
+          <div className="absolute top-0 right-0 w-72 h-72 bg-primary/10 rounded-full blur-[100px]" />
+          <div className="absolute bottom-0 left-0 w-56 h-56 bg-primary/5 rounded-full blur-[80px]" />
           
-          <div className="text-center mb-8">
-            <div className="text-foreground/80 text-lg mb-2">A PARTIR DE</div>
-            <div className="text-6xl font-bold text-primary mb-2">
-              R$ 599<span className="text-3xl">,00</span>
+          <div className="relative border-2 border-primary/40 rounded-3xl p-8 md:p-12">
+            {/* Badge */}
+            <div className="flex justify-center mb-6">
+              <div className="inline-flex items-center gap-2 bg-primary text-primary-foreground text-xs font-extrabold px-5 py-2 rounded-full uppercase tracking-wider shadow-lg shadow-primary/30">
+                <Gift className="w-4 h-4" />
+                Oferta Exclusiva — Plano Ouro
+              </div>
             </div>
-            <div className="text-foreground/80 text-lg">
-              EM 3X SEM JUROS NO CARTÃO
-            </div>
-          </div>
 
-          <div className="text-center">
-            <Button 
-              size="lg"
-              className="bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-sm sm:text-lg px-6 py-3 sm:px-12 sm:py-6 rounded-lg"
-              onClick={() => window.open('https://wa.me/5519993937708?text=oL%C3%81%2C%20MARKETING%20DIGITAL%2C%20ESTOU%20COM%20D%C3%9AVIDAS%20PODE%20ME%20AJUDAR%20%3F', '_blank')}
-            >
-              QUERO COMEÇAR AGORA
-            </Button>
+            <div className="text-center mb-8">
+              <h3 className="text-3xl md:text-5xl font-black text-foreground mb-4 tracking-tight">
+                MARKETING DIGITAL <span className="text-primary">COMPLETO</span>
+              </h3>
+              <p className="text-xl md:text-2xl text-primary font-bold mb-2 flex items-center justify-center gap-2">
+                <Zap className="w-5 h-5" />
+                GANHE UM WEBSITE OU LANDING PAGE
+              </p>
+              <p className="text-base text-muted-foreground">
+                Fechando nosso Plano Ouro você ganha um site profissional com IA integrada
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-3 max-w-4xl mx-auto mb-10">
+              {[
+                "60 CRIATIVOS PROFISSIONAIS", "60 TEXTOS COM SEO",
+                "60 POSTAGENS ESTRATÉGICAS", "10 Stories Envolventes",
+                "10 VÍDEOS REELS", "TRÁFEGO PAGO (Facebook/Instagram)",
+                "TRÁFEGO PAGO (Google/Youtube)", "BIO PROFISSIONAL",
+                "LINKBIO INSTAGRAM", "CHECKLIST DIGITAL",
+                "ATENDIMENTO VIP WHATSAPP", "RELATÓRIO MENSAL",
+              ].map((item, i) => (
+                <div key={i} className="flex items-center gap-3 bg-background/30 rounded-xl px-4 py-2.5">
+                  <Check className="w-4 h-4 text-primary flex-shrink-0" />
+                  <span className="text-foreground/90 text-sm font-medium">{item}</span>
+                </div>
+              ))}
+            </div>
+            
+            <div className="text-center mb-8">
+              <div className="text-muted-foreground text-sm uppercase tracking-widest mb-2 font-medium">A PARTIR DE</div>
+              <div className="flex items-baseline justify-center gap-1">
+                <span className="text-muted-foreground text-2xl">R$</span>
+                <span className="text-6xl md:text-7xl font-black text-primary">599</span>
+                <span className="text-muted-foreground text-2xl">,00</span>
+              </div>
+              <div className="text-muted-foreground text-base mt-2 flex items-center justify-center gap-2">
+                <CreditCard className="w-4 h-4 text-primary" />
+                EM 3X SEM JUROS NO CARTÃO
+              </div>
+            </div>
+
+            <div className="text-center">
+              <Button 
+                size="lg"
+                className="bg-primary hover:bg-primary/90 text-primary-foreground font-extrabold text-base md:text-lg px-10 md:px-14 py-6 md:py-7 rounded-2xl shadow-lg shadow-primary/30 hover:shadow-primary/50 transition-all hover:scale-[1.02]"
+                onClick={() => window.open('https://wa.me/5519993937708?text=oL%C3%81%2C%20MARKETING%20DIGITAL%2C%20ESTOU%20COM%20D%C3%9AVIDAS%20PODE%20ME%20AJUDAR%20%3F', '_blank')}
+              >
+                QUERO COMEÇAR AGORA
+              </Button>
+            </div>
           </div>
         </div>
 
         {/* Main Plans */}
-        <div className="grid lg:grid-cols-3 gap-8 mb-16">
+        <div className="grid lg:grid-cols-3 gap-6 lg:gap-8 mb-16 items-stretch">
           {plans.map((plan, index) => (
-            <Card 
+            <div 
               key={index} 
-              className={`relative border-0 shadow-card hover:shadow-glow transition-all duration-300 ${
+              className={`relative rounded-3xl overflow-hidden flex flex-col transition-all duration-500 hover:translate-y-[-4px] ${
                 plan.isPromo 
-                  ? 'bg-gradient-to-br from-red-500/20 to-red-900/30 ring-2 ring-red-500 ring-offset-2 ring-offset-background transform scale-105'
+                  ? 'bg-gradient-to-b from-destructive/15 via-card to-card border-2 border-destructive shadow-[0_0_50px_hsl(0_84%_60%/0.1)]'
                   : plan.popular 
-                  ? 'bg-gradient-primary transform scale-105' 
-                  : 'bg-gradient-card'
+                  ? 'bg-gradient-to-b from-primary/20 via-card to-card border-2 border-primary shadow-[0_0_60px_hsl(24_95%_53%/0.15)] lg:scale-[1.04] z-10' 
+                  : 'bg-card border border-border/50 hover:border-primary/30'
               }`}
             >
+              {/* Top line */}
+              <div className={`h-1 w-full ${
+                plan.isPromo ? 'bg-gradient-to-r from-destructive to-destructive/50' :
+                plan.popular ? 'bg-gradient-to-r from-primary via-primary-foreground/20 to-primary' :
+                'bg-border/30'
+              }`} />
+
               {plan.isPromo && (
                 <>
-                  {/* 5 Golden Stars */}
-                  <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 flex gap-1 z-20">
+                  <div className="absolute top-5 left-1/2 transform -translate-x-1/2 flex gap-0.5 z-20">
                     {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-5 h-5 text-yellow-400 fill-yellow-400 drop-shadow-lg" />
+                      <Star key={i} className="w-3.5 h-3.5 text-yellow-400 fill-yellow-400" />
                     ))}
                   </div>
-                  <div className="absolute top-4 left-1/2 transform -translate-x-1/2">
-                    <Badge className="bg-gradient-to-r from-red-600 to-red-500 text-white px-4 py-1 font-semibold shadow-lg">
-                      ⭐ PROMOÇÃO ESPECIAL!
+                  <div className="absolute top-10 left-1/2 transform -translate-x-1/2 z-20">
+                    <Badge className="bg-destructive text-white px-3 py-1 font-bold text-[10px] uppercase tracking-wider shadow-lg">
+                      ⭐ Promoção Especial
                     </Badge>
                   </div>
                 </>
               )}
               {plan.popular && !plan.isPromo && (
-                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                  <Badge className="bg-primary-glow text-background px-4 py-1 font-semibold">
-                    <Star className="w-3 h-3 mr-1" />
+                <div className="absolute top-5 left-1/2 transform -translate-x-1/2 z-20">
+                  <Badge className="bg-primary text-primary-foreground px-4 py-1.5 font-bold text-[10px] uppercase tracking-wider shadow-lg shadow-primary/30">
+                    <Star className="w-3 h-3 mr-1 fill-current" />
                     Mais Popular
                   </Badge>
                 </div>
               )}
               
-              <CardHeader className="text-center pb-4">
-                <CardTitle className={`text-2xl ${plan.isPromo ? 'text-red-500' : plan.popular ? 'text-primary-foreground' : ''}`}>
+              <div className={`p-7 md:p-8 flex flex-col flex-1 ${plan.isPromo ? 'pt-20' : plan.popular ? 'pt-14' : 'pt-8'}`}>
+                <h3 className={`text-2xl font-extrabold text-center mb-3 tracking-tight ${
+                  plan.isPromo ? 'text-destructive' : plan.popular ? 'text-primary' : 'text-foreground'
+                }`}>
                   {plan.name}
-                </CardTitle>
-                <div className="mt-4">
+                </h3>
+                
+                <div className="text-center mb-4">
                   {plan.isPromo && plan.originalPrice && (
                     <div className="flex items-center justify-center gap-2 mb-1">
-                      <span className="text-lg text-muted-foreground line-through">{plan.originalPrice}</span>
-                      <span className="bg-red-500 text-white text-xs font-bold px-2 py-0.5 rounded">-33%</span>
+                      <span className="text-base text-muted-foreground line-through">{plan.originalPrice}</span>
+                      <span className="bg-destructive text-white text-[10px] font-bold px-2 py-0.5 rounded-full">-33%</span>
                     </div>
                   )}
-                  <span className={`text-4xl font-bold ${plan.isPromo ? 'text-red-500' : plan.popular ? 'text-primary-foreground' : 'text-primary'}`}>
-                    {plan.price}
-                  </span>
-                  <span className={`text-lg ${plan.popular ? 'text-primary-foreground/80' : 'text-muted-foreground'}`}>
-                    {plan.period}
-                  </span>
-                </div>
-                <CardDescription className={plan.popular ? 'text-primary-foreground/80' : ''}>
-                  {plan.description}
-                </CardDescription>
-                {plan.isPromo && (
-                  <div className="mt-4">
-                    <PromoCountdown variant="large" />
+                  <div className="flex items-baseline justify-center gap-1">
+                    <span className={`text-4xl md:text-5xl font-black ${
+                      plan.isPromo ? 'text-destructive' : plan.popular ? 'text-primary' : 'text-foreground'
+                    }`}>
+                      {plan.price}
+                    </span>
+                    <span className="text-muted-foreground text-base">{plan.period}</span>
                   </div>
-                )}
-              </CardHeader>
+                </div>
+                
+                <p className="text-muted-foreground text-sm text-center mb-6 leading-relaxed">
+                  {plan.description}
+                </p>
+
+                <div className="h-px bg-border/50 mb-6" />
               
-              <CardContent className="space-y-4">
-                <ul className="space-y-3">
-                  {plan.features.map((feature, idx) => (
-                    <li key={idx} className={`flex items-start gap-3 ${plan.popular ? 'text-primary-foreground' : ''}`}>
-                      <Check className={`w-5 h-5 mt-0.5 flex-shrink-0 ${plan.isPromo ? 'text-red-500' : plan.popular ? 'text-primary-foreground' : 'text-primary'}`} />
-                      <span className="text-sm">{feature}</span>
-                    </li>
-                  ))}
+                <ul className="space-y-3 flex-1">
+                  {plan.features.map((feature, idx) => {
+                    const isBonus = feature.startsWith("BÔNUS:");
+                    return (
+                      <li key={idx} className="flex items-start gap-3">
+                        <Check className={`w-4 h-4 mt-0.5 flex-shrink-0 ${
+                          plan.isPromo ? 'text-destructive' : 'text-primary'
+                        }`} />
+                        <span className={`text-sm ${
+                          isBonus ? 'text-primary font-bold' : 'text-foreground/80'
+                        }`}>{feature}</span>
+                      </li>
+                    );
+                  })}
                 </ul>
                 
                 <Button 
-                  variant={plan.popular ? "outline" : "default"} 
-                  className={`w-full mt-6 ${
+                  className={`w-full mt-8 rounded-xl font-bold text-sm py-6 transition-all duration-300 ${
                     plan.isPromo
-                      ? 'bg-red-500 hover:bg-red-600 text-white'
+                      ? 'bg-destructive hover:bg-destructive/90 text-white shadow-lg shadow-destructive/20'
                       : plan.popular 
-                      ? 'border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary' 
-                      : ''
+                      ? 'bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg shadow-primary/25' 
+                      : 'bg-foreground/5 border-2 border-foreground/15 text-foreground hover:bg-primary/10 hover:border-primary/40'
                   }`}
                   size="lg"
-                  onClick={() => window.open(plan.isPromo ? PLANO_PRATA_WHATSAPP : 'https://wa.me/5519993937708?text=oL%C3%81%2C%20MARKETING%20DIGITAL%2C%20ESTOU%20COM%20D%C3%9AVIDAS%20PODE%20ME%20AJUDAR%20%3F', '_blank')}
+                  onClick={() => window.open(
+                    plan.isPromo 
+                      ? 'https://api.whatsapp.com/send?phone=5519993937708&text=Ol%C3%A1%20gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20o%20plano%20prata%20de%20R%24%20199%2C00%20mensais' 
+                      : 'https://wa.me/5519993937708?text=oL%C3%81%2C%20MARKETING%20DIGITAL%2C%20ESTOU%20COM%20D%C3%9AVIDAS%20PODE%20ME%20AJUDAR%20%3F', 
+                    '_blank'
+                  )}
                 >
                   {plan.isPromo ? 'APROVEITAR AGORA!' : `Escolher ${plan.name}`}
                 </Button>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
           ))}
         </div>
 
         {/* Additional Services */}
-        <div className="bg-gradient-card rounded-2xl p-8 border border-primary/20">
-          <h3 className="text-2xl font-bold text-center mb-8">Serviços Adicionais</h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="bg-card rounded-3xl p-8 md:p-10 border border-border/50">
+          <h3 className="text-2xl font-bold text-center mb-8 tracking-tight">Serviços Adicionais</h3>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
             {additionalServices.map((item, index) => (
-              <div key={index} className="text-center p-4 border border-primary/10 rounded-lg hover:border-primary/30 transition-colors duration-300">
-                <h4 className="font-semibold mb-2">{item.service}</h4>
-                <p className="text-primary font-bold text-lg">{item.price}</p>
+              <div key={index} className="text-center p-5 bg-background/50 border border-border/30 rounded-2xl hover:border-primary/30 transition-all duration-300 hover:bg-primary/5">
+                <h4 className="font-semibold text-sm mb-2 text-foreground">{item.service}</h4>
+                <p className="text-primary font-bold text-base">{item.price}</p>
                 {item.note && (
                   <p className="text-xs text-muted-foreground mt-2">{item.note}</p>
                 )}
@@ -346,21 +337,21 @@ const Pricing = ({ onOpenMiguelChat }: { onOpenMiguelChat?: () => void }) => {
 
         {/* Payment Methods */}
         <div className="mt-12 text-center">
-          <h3 className="text-xl font-semibold mb-4">Formas de Pagamento</h3>
-          <div className="flex justify-center items-center gap-8">
+          <h3 className="text-lg font-semibold mb-4 text-foreground">Formas de Pagamento</h3>
+          <div className="flex justify-center items-center gap-6 md:gap-8 flex-wrap">
             <div className="flex items-center gap-2 text-muted-foreground">
               <Smartphone className="w-5 h-5 text-primary" />
-              <span>PIX</span>
+              <span className="text-sm">PIX</span>
             </div>
-            <div className="w-px h-6 bg-border" />
+            <div className="w-px h-5 bg-border hidden md:block" />
             <div className="flex items-center gap-2 text-muted-foreground">
               <DollarSign className="w-5 h-5 text-primary" />
-              <span>Boleto Bancário</span>
+              <span className="text-sm">Boleto Bancário</span>
             </div>
-            <div className="w-px h-6 bg-border" />
+            <div className="w-px h-5 bg-border hidden md:block" />
             <div className="flex items-center gap-2 text-muted-foreground">
               <CreditCard className="w-5 h-5 text-primary" />
-              <span>Cartão de Crédito</span>
+              <span className="text-sm">Cartão de Crédito</span>
             </div>
           </div>
         </div>
