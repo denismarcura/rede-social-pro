@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Check, Clock, Star, Zap, CreditCard, Bot, MessageCircle, Phone, X, Crown } from "lucide-react";
+import { Check, Clock, Star, CreditCard, Bot, MessageCircle, Phone, X, Crown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import PromoCountdown from "./PromoCountdown";
 
