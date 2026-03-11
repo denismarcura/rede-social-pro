@@ -1,7 +1,7 @@
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, Instagram, Globe, Play, FileText, Images } from "lucide-react";
+import { ExternalLink, Instagram, Globe, Play, Images } from "lucide-react";
 import { useState } from "react";
 
 import portfolio1 from "@/assets/portfolio-1.jpg";
