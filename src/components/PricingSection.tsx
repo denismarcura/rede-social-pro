@@ -5,7 +5,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import PromoCountdown from "./PromoCountdown";
 
 const PLANO_PRATA_WHATSAPP = 'https://api.whatsapp.com/send?phone=5519993937708&text=Ol%C3%A1%20gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20o%20plano%20prata';
-const PLANO_HYPERFOCO_WHATSAPP = 'https://api.whatsapp.com/send?phone=5519993937708&text=Ol%C3%A1%20gostaria%20de%20contratar%20o%20Plano%20Hyperfoco%20de%20R%24%2099%2C90';
 const WHATSAPP_LINK = "https://wa.me/5519993937708?text=Ol%C3%A1%2C%20estou%20com%20d%C3%BAvidas%20pode%20me%20ajudar%0A";
 
 // Miguel Button Component
