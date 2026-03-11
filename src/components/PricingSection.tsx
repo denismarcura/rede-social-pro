@@ -1,11 +1,10 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Check, Clock, Star, Zap, CreditCard, Bot, MessageCircle, Phone, X, Crown } from "lucide-react";
+import { Check, Clock, Star, CreditCard, Bot, MessageCircle, Phone, X, Crown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import PromoCountdown from "./PromoCountdown";
 
 const PLANO_PRATA_WHATSAPP = 'https://api.whatsapp.com/send?phone=5519993937708&text=Ol%C3%A1%20gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20o%20plano%20prata';
-const PLANO_HYPERFOCO_WHATSAPP = 'https://api.whatsapp.com/send?phone=5519993937708&text=Ol%C3%A1%20gostaria%20de%20contratar%20o%20Plano%20Hyperfoco%20de%20R%24%2099%2C90';
 const WHATSAPP_LINK = "https://wa.me/5519993937708?text=Ol%C3%A1%2C%20estou%20com%20d%C3%BAvidas%20pode%20me%20ajudar%0A";
 
 // Miguel Button Component
@@ -109,22 +108,6 @@ type BillingPeriod = "mensal" | "bimestral" | "trimestral";
 const PricingSection = ({ onOpenMiguelChat }: { onOpenMiguelChat?: () => void }) => {
   const [billingPeriod, setBillingPeriod] = useState<BillingPeriod>("mensal");
 
-  const hyperfocoOffer = {
-    title: "Plano Hyperfoco",
-    subtitle: "Impulsione sua marca hoje mesmo",
-    description: "Se você quer atrair mais clientes, aumentar sua presença digital e vender todos os dias nas redes sociais, eu criei uma solução completa, acessível e rápida.",
-    features: [
-      "10 criativos profissionais prontos para postar",
-      "10 textos persuasivos com SEO focados em alcance e vendas",
-      "10 postagens estratégicas pensadas para engajar e converter",
-      "Gestão de tráfego pago para Facebook e Instagram",
-      "Material personalizado alinhado com seu público"
-    ],
-    price: "99",
-    cents: "90",
-    delivery: "Entrega em até 24 horas",
-    paymentMethods: ["Pix", "Cartão de crédito em até 2x"]
-  };
 
   const pricing: Record<BillingPeriod, { prata: string; ouro: string; titanio: string }> = {
     mensal: { prata: "159", ouro: "299", titanio: "499" },
@@ -214,83 +197,6 @@ const PricingSection = ({ onOpenMiguelChat }: { onOpenMiguelChat?: () => void })
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        {/* Hyperfoco Offer */}
-        <div className="max-w-4xl mx-auto mb-16">
-          <div className="relative border-2 border-emerald-500 rounded-3xl p-8 md:p-10 bg-gradient-to-br from-emerald-500/10 via-background/80 to-emerald-900/20 backdrop-blur-sm overflow-hidden">
-            <div className="absolute top-0 right-0 w-40 h-40 bg-emerald-500/20 rounded-full blur-3xl" />
-            <div className="absolute bottom-0 left-0 w-32 h-32 bg-emerald-400/10 rounded-full blur-2xl" />
-            
-            <div className="flex justify-center mb-4">
-              <div className="bg-gradient-to-r from-emerald-600 to-emerald-500 text-white text-xs font-bold px-4 py-1.5 rounded-full flex items-center gap-2 shadow-lg">
-                <Zap className="w-4 h-4" />
-                OFERTA ESPECIAL - RESULTADO RÁPIDO
-              </div>
-            </div>
-
-            <h2 className="text-3xl md:text-4xl font-bold text-center text-foreground mb-2">
-              {hyperfocoOffer.title}
-            </h2>
-            <p className="text-center text-emerald-400 font-semibold text-lg mb-4">
-              {hyperfocoOffer.subtitle}
-            </p>
-            <p className="text-center text-muted-foreground text-sm max-w-2xl mx-auto mb-8">
-              {hyperfocoOffer.description}
-            </p>
-
-            <div className="bg-background/40 rounded-2xl p-6 mb-8 max-w-2xl mx-auto">
-              <h4 className="text-foreground font-semibold text-center mb-4 text-sm uppercase tracking-wide">
-                O que está incluso no Plano Hyperfoco
-              </h4>
-              <div className="space-y-3">
-                {hyperfocoOffer.features.map((feature, index) => (
-                  <div key={index} className="flex items-start gap-3">
-                    <Check className="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5" />
-                    <span className="text-foreground/90 text-sm">{feature}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="flex justify-center mb-6">
-              <div className="flex items-center gap-2 bg-emerald-500/20 text-emerald-400 px-4 py-2 rounded-full">
-                <Clock className="w-4 h-4" />
-                <span className="text-sm font-semibold">{hyperfocoOffer.delivery}</span>
-              </div>
-            </div>
-
-            <div className="text-center mb-6">
-              <p className="text-muted-foreground text-xs uppercase tracking-widest mb-2">APENAS</p>
-              <div className="text-5xl md:text-6xl font-bold text-emerald-400">
-                R$ {hyperfocoOffer.price}<span className="text-3xl">,{hyperfocoOffer.cents}</span>
-              </div>
-            </div>
-
-            <div className="flex justify-center gap-4 mb-8 flex-wrap">
-              {hyperfocoOffer.paymentMethods.map((method, index) => (
-                <div key={index} className="flex items-center gap-2 bg-background/30 px-3 py-1.5 rounded-full">
-                  <CreditCard className="w-3 h-3 text-muted-foreground" />
-                  <span className="text-foreground/80 text-xs">{method}</span>
-                </div>
-              ))}
-            </div>
-
-            <div className="text-center space-y-4">
-              <Button
-                size="lg"
-                className="bg-gradient-to-r from-emerald-600 to-emerald-500 hover:from-emerald-500 hover:to-emerald-400 text-white font-bold text-sm uppercase tracking-wider px-12 py-6 rounded-full shadow-lg shadow-emerald-500/30 transition-all hover:scale-105"
-                onClick={() => window.open(PLANO_HYPERFOCO_WHATSAPP, '_blank')}
-              >
-                QUERO O PLANO HYPERFOCO
-              </Button>
-              {onOpenMiguelChat && (
-                <div className="pt-2">
-                  <MiguelButtonInline onOpenMiguelChat={onOpenMiguelChat} />
-                </div>
-              )}
-            </div>
-          </div>
-        </div>
-
         {/* New Pricing Table */}
         <div className="max-w-7xl mx-auto">
           {/* Header */}
