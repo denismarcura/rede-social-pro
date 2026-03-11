@@ -108,22 +108,6 @@ type BillingPeriod = "mensal" | "bimestral" | "trimestral";
 const PricingSection = ({ onOpenMiguelChat }: { onOpenMiguelChat?: () => void }) => {
   const [billingPeriod, setBillingPeriod] = useState<BillingPeriod>("mensal");
 
-  const hyperfocoOffer = {
-    title: "Plano Hyperfoco",
-    subtitle: "Impulsione sua marca hoje mesmo",
-    description: "Se você quer atrair mais clientes, aumentar sua presença digital e vender todos os dias nas redes sociais, eu criei uma solução completa, acessível e rápida.",
-    features: [
-      "10 criativos profissionais prontos para postar",
-      "10 textos persuasivos com SEO focados em alcance e vendas",
-      "10 postagens estratégicas pensadas para engajar e converter",
-      "Gestão de tráfego pago para Facebook e Instagram",
-      "Material personalizado alinhado com seu público"
-    ],
-    price: "99",
-    cents: "90",
-    delivery: "Entrega em até 24 horas",
-    paymentMethods: ["Pix", "Cartão de crédito em até 2x"]
-  };
 
   const pricing: Record<BillingPeriod, { prata: string; ouro: string; titanio: string }> = {
     mensal: { prata: "159", ouro: "299", titanio: "499" },
