@@ -191,8 +191,8 @@ function ThreeDPhotoCarousel() {
   const controls = useAnimation()
   const cards = useMemo(() => portfolioImages, [])
   const rotationRef = useRef<MotionValue<number> | null>(null)
-  const autoplayRef = useRef<NodeJS.Timeout | null>(null)
-  const pauseTimeoutRef = useRef<NodeJS.Timeout | null>(null)
+  const autoplayRef = useRef<ReturnType<typeof setInterval> | null>(null)
+  const pauseTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   useEffect(() => {
     console.log("Cards loaded:", cards)
